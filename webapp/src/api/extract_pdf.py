@@ -14,7 +14,7 @@ for table in tables:
     all_data.extend(data)
 
 # Save the entire list as a JSON file
-with open("all_tables.json", 'w', encoding='utf-8') as f:
+with open("sanktionerade-cuper-2024", 'w', encoding='utf-8') as f:
     json.dump(all_data, f, indent=4, ensure_ascii=False)
 
 # We will have to locate the links later on with other libraries
