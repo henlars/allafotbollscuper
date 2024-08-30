@@ -2,15 +2,18 @@
 
 A comprehensive web application that provides a centralized platform for discovering youth soccer tournaments across Sweden. Data is retrieved from the Svenska Fotbollförbundet website to offer a user-friendly interface for searching, filtering, and finding relevant tournaments.
 
+**Please note that features are not yet ready.**
+
+
 ## Why
 
 As a coach, I struggled to find a user-friendly platform for discovering youth soccer tournaments in Sweden. Inspired by this challenge, I created a comprehensive web app to help coaches, players, and parents easily find suitable tournaments.
 
 ## Features
 
-* Extensive Tournament Database: A vast collection of youth soccer tournaments from various regions in Sweden.
-* User-Friendly Search: Intuitive search functionality to find tournaments based on location, date, age group, and other criteria.
-* Detailed Tournament Information: Comprehensive details about each tournament, including organizers, dates, venues, and registration information.
+* Extensive Tournament Database: A vast collection of youth soccer tournaments from various regions in Sweden **(Under development)**.
+* User-Friendly Search: Intuitive search functionality to find tournaments based on location, date, age group, and other criteria **(Under development)**.
+* Detailed Tournament Information: Comprehensive details about each tournament, including organizers, dates, venues, and registration information **(Under development)**.
 
 ## Technologies
 
