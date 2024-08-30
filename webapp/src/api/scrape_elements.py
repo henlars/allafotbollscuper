@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-def scrape_webpage(url, text_to_find):
+def scrape_tournament_data(url, text_to_find):
     """Scrapes a webpage and extracts data based on months and elements within the found element.
 
     Args:
@@ -33,7 +33,7 @@ def scrape_webpage(url, text_to_find):
                     element = soup.find(id=aria_controls)
                     if element:
                         # Extract data based on the element's structure
-                        data = extract_data_from_element(element)
+                        data = extract_cup_data(element)
                         return data
                 break  # Exit the loop once the element is found
 
@@ -44,7 +44,7 @@ def scrape_webpage(url, text_to_find):
         print(f"Error fetching webpage content: {e}")
         return None
 
-def extract_data_from_element(element):
+def extract_cup_data(element):
     """Extracts data from the specified element based on its structure.
 
     Args:
@@ -67,28 +67,21 @@ def extract_data_from_element(element):
               link = cup.find('a')
              
               data.append({
-                      "Month": current_month,
-                      "Cup/Tävling": tournament_data[0],
-                      "Arrangör": tournament_data[1],
-                      "Datum": tournament_data[2],
-                      "Kategori": tournament_data[3],
-                      "Hemsida": link['href'] if len(tournament_data) > 4 else None
-
+                      "month": current_month,
+                      "name": tournament_data[0],
+                      "club": tournament_data[1],
+                      "date": tournament_data[2],
+                      "category": tournament_data[3],
+                      "link": link['href'] if len(tournament_data) > 4 else None
                   })
-            
-            
-            
-            
-        
-            
-
+ 
     return data
 
 if __name__ == "__main__":
     url = "https://vastergotland.svenskfotboll.se/tavling/cuptillstand/"
     text_to_find = "Cuptillstånd fotboll 2024"
 
-    data = scrape_webpage(url, text_to_find)
+    data = scrape_tournament_data(url, text_to_find)
 
     if data:
         # Save the data as JSON
