@@ -1,0 +1,266 @@
+[
+    {
+        "month": "Januari",
+        "name": "Sparbanken Cup",
+        "club": "Hols IF",
+        "date": "3/1",
+        "category": "Herrsenior",
+        "link": "https://holsif.nu/"
+    },
+    {
+        "month": "Januari",
+        "name": "Vara Alliansen",
+        "club": "Arentorp Helås FK",
+        "date": "3/1-8/1",
+        "category": "Herr & Damsenior (7:7)",
+        "link": null
+    },
+    {
+        "month": "Februari",
+        "name": "Sporttorget Cup",
+        "club": "Vara SK",
+        "date": "3-4/2",
+        "category": "Herr & Dam junior (7:7)",
+        "link": "https://www.procup.se/cup/36987.htm"
+    },
+    {
+        "month": "Mars",
+        "name": "Rydablixten",
+        "club": "Norrby IF",
+        "date": "24/3",
+        "category": "F/P8-9",
+        "link": "https://www.norrbyif.se/"
+    },
+    {
+        "month": "Mars",
+        "name": "Säkra-Cupen",
+        "club": "Södra Vings IF",
+        "date": "16-17/3",
+        "category": "F/P10",
+        "link": "https://www.sodravingsif.se/start/?ID=278432"
+    },
+    {
+        "month": "Mars",
+        "name": "Vinterulven",
+        "club": "Ulvåkers IF",
+        "date": "2/3-6/4",
+        "category": "F13 & F14, P14 & P16 - Klicka här",
+        "link": null
+    },
+    {
+        "month": "Mars",
+        "name": "Olins Cup",
+        "club": "Skara FC",
+        "date": "17/3",
+        "category": "P15",
+        "link": "https://www.laget.se/SkaraFC"
+    },
+    {
+        "month": "April",
+        "name": "Giffcupen",
+        "club": "Tidaholms GoIF",
+        "date": "20-21/4",
+        "category": "F/P13-14",
+        "link": "https://giffcupen.se/"
+    },
+    {
+        "month": "April",
+        "name": "Giffcupen",
+        "club": "Tidaholms GoIF",
+        "date": "27-28/4",
+        "category": "F/P9-12, F15-17, P15-16",
+        "link": "https://giffcupen.se/"
+    },
+    {
+        "month": "April",
+        "name": "Bollis Cup -Mariestads BK",
+        "club": "20-21/4 & 27-28/4",
+        "date": "P8-13, F8-9",
+        "category": "Klicka här",
+        "link": null
+    },
+    {
+        "month": "April",
+        "name": "Axvall Cup",
+        "club": "Axvalls IF",
+        "date": "27/4",
+        "category": "P/F 7- P/F 12",
+        "link": "https://www.cupmate.nu/cup/axvall-cup"
+    },
+    {
+        "month": "April",
+        "name": "Horredscupen 2024",
+        "club": "Horreds IF",
+        "date": "20-21/4",
+        "category": "P7, P9-12",
+        "link": "https://www.laget.se/HorredsIF"
+    },
+    {
+        "month": "April",
+        "name": "Kronäng Arena Cup 2024",
+        "club": "Kronängs IF",
+        "date": "20-21/4",
+        "category": "P/F8",
+        "link": "https://www.kronangsif.se/"
+    },
+    {
+        "month": "April",
+        "name": "ICA Maxi Cup",
+        "club": "Trollhättans IF",
+        "date": "27-28/4",
+        "category": "P/F10, P/F11 & P12",
+        "link": "https://www.procup.se/cup/37128.htm"
+    },
+    {
+        "month": "April",
+        "name": "TIFOSI Preseason Cup",
+        "club": "Wargöns IK",
+        "date": "6-7/4",
+        "category": "P/F11 & P/F12",
+        "link": "https://www.wargonsik.se/"
+    },
+    {
+        "month": "April",
+        "name": "Lassabollen",
+        "club": "Ulricehamns IFK",
+        "date": "6-7/4 & 13-14/4",
+        "category": "P/F10-P/F15",
+        "link": "https://www.cupmate.nu/cup/lassacupen"
+    },
+    {
+        "month": "Juni",
+        "name": "Ulvacupen",
+        "club": "Ulvåkers IF",
+        "date": "14-16/6",
+        "category": "F/P10-12",
+        "link": "https://www.ulvacupen.com/"
+    },
+    {
+        "month": "Juni",
+        "name": "Junicupen",
+        "club": "Ardala GoIF",
+        "date": "1-2/6",
+        "category": "F/P6-F/P12, P13 Klicka här ",
+        "link": null
+    },
+    {
+        "month": "Juni",
+        "name": "Skadevi Cup",
+        "club": "IFK Skövde FK",
+        "date": "28-30/6",
+        "category": "P/F12-P/F16",
+        "link": "https://skadevifotboll.se/"
+    },
+    {
+        "month": "Juni",
+        "name": "Kamratcupen 2024",
+        "club": "IFK Örby",
+        "date": "6/6",
+        "category": "P/F6-P/F9",
+        "link": "https://www.laget.se/ifk_orby"
+    },
+    {
+        "month": "Juni",
+        "name": "Sorkarnas Sommarcup",
+        "club": "Gerdskens BK",
+        "date": "15/6",
+        "category": "P7-P9",
+        "link": "https://www.procup.se/cup/37443.htm"
+    },
+    {
+        "month": "Juni",
+        "name": "IKG Jubileumscup",
+        "club": "IK Gauthiod",
+        "date": "16/6",
+        "category": "P/F8-P/F12",
+        "link": "https://www.laget.se/IK_Gauthiod"
+    },
+    {
+        "month": "Juni",
+        "name": "Olstorpscupen",
+        "club": "Tidans IF",
+        "date": "8/6",
+        "category": "F/P6-F/P7",
+        "link": "https://www.laget.se/Olstorpscupen"
+    },
+    {
+        "month": "Augusti",
+        "name": "Sommarlandscup",
+        "club": "Skara FC",
+        "date": "2-4/8",
+        "category": "P/F11-P/F14",
+        "link": "https://www.laget.se/SkaraFC"
+    },
+    {
+        "month": "Augusti",
+        "name": "Raiscupen 2024",
+        "club": "Rävlanda AIS",
+        "date": "24-25/8",
+        "category": "P/F6-P/F14",
+        "link": "https://www.procup.se/cup/37433.htm"
+    },
+    {
+        "month": "Augusti",
+        "name": "Nabben Cup",
+        "club": "Skultorps IF",
+        "date": "24/8",
+        "category": "P/F7",
+        "link": "https://www.nabbencup.se/"
+    },
+    {
+        "month": "Augusti",
+        "name": "Kungabergscupen",
+        "club": "Fritsla IF",
+        "date": "10/8",
+        "category": "P/F8",
+        "link": "https://www.fritslaif.nu/fritslaif/sida/108241/kungabergscupen"
+    },
+    {
+        "month": "Augusti",
+        "name": "Mjöbäcks Sparbanks Fotbollsturnering",
+        "club": "Torestorp/Älekula FF",
+        "date": "3/8",
+        "category": "Herrsenior",
+        "link": null
+    },
+    {
+        "month": "September",
+        "name": "Quality Hotel cup",
+        "club": "Vänersborgs IF",
+        "date": "27/9-29/9",
+        "category": "P/F12",
+        "link": "https://www.procup.se/cup/cupstartgeneric900_skin03.php?ev=37209&lang=ENG"
+    },
+    {
+        "month": "Oktober",
+        "name": "Kick On Cup",
+        "club": "Tidaholms GoIF",
+        "date": "5-6/10",
+        "category": "F/P12-14",
+        "link": "https://www.kickoncup.se/"
+    },
+    {
+        "month": "Oktober",
+        "name": "Quality Hotel cup",
+        "club": "Vänersborgs IF",
+        "date": "4/10-27/10",
+        "category": "P/F13-P/F16",
+        "link": "https://www.procup.se/cup/cupstartgeneric900_skin03.php?ev=37209&lang=ENG"
+    },
+    {
+        "month": "Oktober",
+        "name": "Norrby IF Borås Arena Cup 2024",
+        "club": "Norrby IF",
+        "date": "5-6/10",
+        "category": "P/F9-P/F12",
+        "link": "https://www.norrbyif.se/start/?ID=61255"
+    },
+    {
+        "month": "Oktober",
+        "name": "Sportvallen Cup",
+        "club": "Stenstorps IF",
+        "date": "4-5/10",
+        "category": "P/F9-P/F11",
+        "link": "https://www.stenstorpsif.se/stenstorpsif-sportvallencup"
+    }
+]
