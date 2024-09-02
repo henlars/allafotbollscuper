@@ -1,7 +1,9 @@
-import { Box, Image, Heading, Text, Flex, Link } from '@chakra-ui/react';
+import { Box, Image, Heading, Text, Flex } from '@chakra-ui/react';
+import ChakraNextLink from './Link';
+
 function Card({ month, name, club, date, category, link }) {
   return (
-    <Link href={link} _hover={link && { cursor: 'pointer' }}>
+    <ChakraNextLink href={link}>
       <Box
         backgroundColor={'white'}
         maxW='350px'
@@ -37,7 +39,7 @@ function Card({ month, name, club, date, category, link }) {
           </Flex>
         </Box>
       </Box>
-    </Link>
+    </ChakraNextLink>
   );
 }
 
