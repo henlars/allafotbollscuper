@@ -12,6 +12,16 @@ export default function Home() {
           alt='Image description'
           fill
         />
+        <Text
+          position={'absolute'}
+          top={'3%'}
+          left={'3%'}
+          zIndex={2}
+          color={'white'}
+          fontSize={'xx-large'}
+        >
+          allafotbollscuper.se
+        </Text>
         <Center
           height={'100%'}
           position={'absolute'}
