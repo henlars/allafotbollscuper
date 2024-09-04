@@ -19,8 +19,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Filters() {
   const [selectedFilters, setSelectedFilters] = useState({
     months: [],
-    gender: '',
-    age: '',
+    gender: 'Alla',
+    age: 'Alla',
     counties: [],
     years: [],
   });
@@ -33,27 +33,27 @@ export default function Filters() {
     if (selectedFilters.counties.length == 1) {
       return '1 län valt';
     } else if (selectedFilters.counties.length > 1) {
-      return selectedFilters.counties.length + 'län valda';
+      return selectedFilters.counties.length + ' län valda';
     } else return 'Vart vill ni spela?';
   };
   const monthMenuButtonText = () => {
     if (selectedFilters.months.length == 1) {
       return '1 månad vald';
     } else if (selectedFilters.months.length > 1) {
-      return selectedFilters.months.length + 'månader valda';
+      return selectedFilters.months.length + ' månader valda';
     } else return 'Alla';
   };
   const yearMenuButtonText = () => {
     if (selectedFilters.years.length == 1) {
-      return '1 månad vald';
+      return '1 år valt';
     } else if (selectedFilters.years.length > 1) {
-      return selectedFilters.years.length + 'månader valda';
+      return selectedFilters.years.length + ' år valda';
     } else return 'Alla';
   };
 
   return (
     <>
-      <Flex borderRadius='5%' height={'500px'} w={'400px'} background='white'>
+      <Flex borderRadius='5%' height={'500px'} w={'500px'} background='white'>
         <Flex
           flexDirection={'column'}
           alignItems='center'
@@ -74,50 +74,81 @@ export default function Filters() {
             <Box w={'45%'}>
               <FormLabel htmlFor='age'>Ålder</FormLabel>
 
-              <Select
-                onChange={(e) => {
-                  setSelectedFilters({
-                    ...selectedFilters,
-                    age: e.target.value,
-                  });
-                }}
-                fontSize={'md'}
-                color={'black'}
-                placeholder={'Alla'}
-                value={selectedFilters.age || ''}
-                focusBorderColor='black'
-                id='age'
-              >
-                {ages.map((age) => (
-                  <option value={age} key={age}>
-                    {age}
-                  </option>
-                ))}
-              </Select>
+              <Menu closeOnSelect={false} flip={false} id='age'>
+                <MenuButton
+                  as={Button}
+                  rightIcon={
+                    <FontAwesomeIcon icon={faChevronDown} width='12px' />
+                  }
+                  borderWidth='1px'
+                  backgroundColor={'transparent'}
+                  color='black'
+                  fontWeight={'normal'}
+                  width={'100%'}
+                  h={'40px'}
+                >
+                  {selectedFilters.age}
+                </MenuButton>
+                <MenuList minWidth={'202.5px'} zIndex={20}>
+                  <MenuOptionGroup
+                    type='radio'
+                    onChange={(e) => {
+                      setSelectedFilters({
+                        ...selectedFilters,
+                        age: e,
+                      });
+                    }}
+                  >
+                    <MenuItemOption value='Alla' key='Alla'>
+                      Alla
+                    </MenuItemOption>
+                    {ages.map((age) => (
+                      <MenuItemOption key={age} value={age}>
+                        {age}
+                      </MenuItemOption>
+                    ))}
+                  </MenuOptionGroup>
+                </MenuList>
+              </Menu>
             </Box>
             <Box w={'45%'}>
-              <FormLabel htmlFor='age'>Kön</FormLabel>
-
-              <Select
-                onChange={(e) => {
-                  setSelectedFilters({
-                    ...selectedFilters,
-                    gender: e.target.value,
-                  });
-                }}
-                fontSize={'md'}
-                color={'black'}
-                placeholder={'Alla'}
-                value={selectedFilters.gender || ''}
-                focusBorderColor='black'
-                id='gender'
-              >
-                {genders.map((gender) => (
-                  <option value={gender} key={gender}>
-                    {gender}
-                  </option>
-                ))}
-              </Select>
+              <FormLabel htmlFor='gender'>Kön</FormLabel>
+              <Menu closeOnSelect={false} flip={false} id='gender'>
+                <MenuButton
+                  as={Button}
+                  rightIcon={
+                    <FontAwesomeIcon icon={faChevronDown} width='12px' />
+                  }
+                  borderWidth='1px'
+                  backgroundColor={'transparent'}
+                  color='black'
+                  fontWeight={'normal'}
+                  width={'100%'}
+                  h={'40px'}
+                >
+                  {selectedFilters.gender}
+                </MenuButton>
+                <MenuList minWidth={'202.5px'} zIndex={20}>
+                  <MenuOptionGroup
+                    type='radio'
+                    onChange={(e) => {
+                      setSelectedFilters({
+                        ...selectedFilters,
+                        gender: e,
+                      });
+                    }}
+                  >
+                    <MenuItemOption value='Alla' key='Alla'>
+                      Alla
+                    </MenuItemOption>
+                    {genders.map((gender) => (
+                      <MenuItemOption key={gender} value={gender}>
+                        {gender}
+                      </MenuItemOption>
+                    ))}
+                  </MenuOptionGroup>
+                </MenuList>
+              </Menu>
             </Box>
           </Flex>
 
@@ -138,7 +169,7 @@ export default function Filters() {
               >
                 {countyMenuButtonText()}
               </MenuButton>
-              <MenuList minWidth={'360px'} zIndex={20}>
+              <MenuList minWidth={'450px'} zIndex={20}>
                 <MenuOptionGroup
                   type='checkbox'
                   onChange={(e) => {
@@ -181,7 +212,7 @@ export default function Filters() {
                   >
                     {monthMenuButtonText()}
                   </MenuButton>
-                  <MenuList minW={'162px'}>
+                  <MenuList minWidth={'202.5px'}>
                     <MenuOptionGroup
                       type='checkbox'
                       onChange={(e) => {
@@ -218,7 +249,7 @@ export default function Filters() {
                   >
                     {yearMenuButtonText()}
                   </MenuButton>
-                  <MenuList minW={'162px'}>
+                  <MenuList minWidth={'202.5px'}>
                     <MenuOptionGroup
                       type='checkbox'
                       onChange={(e) => {
@@ -251,23 +282,25 @@ export default function Filters() {
               onClick={() => {
                 setSelectedFilters({
                   months: [],
-                  gender: '',
-                  age: '',
+                  gender: 'Alla',
+                  age: 'Alla',
                   counties: [],
                   years: [],
                 });
               }}
               padding={'8px'}
               width={'75px'}
+              _hover={{ backgroundColor: 'gray.800' }}
             >
               Rensa{' '}
             </Button>
             <Button
               backgroundColor='black'
               color='white'
-              onClick={() => console.log('test')}
+              onClick={() => console.log(selectedFilters)}
               padding={'8px'}
               width={'75px'}
+              _hover={{ backgroundColor: 'gray.800' }}
             >
               Sök
             </Button>
