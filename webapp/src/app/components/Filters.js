@@ -63,7 +63,7 @@ export default function Filters() {
           placeContent={'center'}
         >
           <Text color={'black'} fontSize={'30px'}>
-            Hitta nästa cup här!
+            Sök cuper i hela Sverige
           </Text>
           <Flex
             flexDirection='row'
