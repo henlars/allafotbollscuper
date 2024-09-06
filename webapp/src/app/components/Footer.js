@@ -28,7 +28,7 @@ const Footer = () => (
         <Text color={'white'} fontSize={'2xl'}>
           Social:
         </Text>
-        <ChakraNextLink href='mailto:henriklarssonmail@gmail.com'>
+        <ChakraNextLink href='mailto:henriklarssonmail@gmail.com' newTab>
           <Flex>
             <FontAwesomeIcon icon={faEnvelope} color='white' fontSize='24px' />
           </Flex>{' '}
