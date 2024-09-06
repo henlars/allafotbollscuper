@@ -4,6 +4,7 @@ import { Box, Center, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Filters from './components/Filters';
 import Footer from './components/Footer';
+import { Tournaments } from './components/Tournaments';
 export default function Home() {
   return (
     <Box maxW={'1500px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
@@ -33,7 +34,7 @@ export default function Home() {
           <Filters></Filters>
         </Center>
       </Box>
-      <Cards cards={data} />
+      <Tournaments tournaments={data}></Tournaments>
       <Footer></Footer>
     </Box>
   );
