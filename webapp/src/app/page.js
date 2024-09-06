@@ -8,7 +8,7 @@ import { Tournaments } from './components/Tournaments';
 export default function Home() {
   return (
     <Box maxW={'1500px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
-      <Box pt={'50%'} position={'relative'} mb={'100px'}>
+      <Box pt={'40%'} position={'relative'}>
         <Image
           src={'/winner.jpeg'} // Replace with your image path
           alt='Image description'

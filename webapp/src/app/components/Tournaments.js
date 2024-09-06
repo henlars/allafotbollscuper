@@ -177,7 +177,6 @@ export const Tournaments = ({ tournaments }) => {
         <Flex
           display='flex'
           fontSize={{ sm: 'xl', xl: '3xl', '2xl': '4xl', '3xl': '6xl' }}
-          mt='40px'
           fontFamily={'Gill Sans'}
           width={'100%'}
           justifyContent={'center'}
