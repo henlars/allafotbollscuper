@@ -24,7 +24,7 @@ function ListCard({ month, name, club, date, category, link }) {
           p={'15px'}
         >
           <Text fontWeight={'bold'} fontSize={'x-large'}>
-            {name.length < 30 ? name : name.substring(0, 25) + '...'}
+            {name.length < 40 ? name : name.substring(0, 35) + '...'}
           </Text>
           <Flex mt={'5px'} placeContent={'space-between'} fontSize={'larger'}>
             <Text>Västra götalands län</Text> <Text>{date}</Text>
