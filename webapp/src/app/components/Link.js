@@ -7,6 +7,7 @@ export default function ChakraNextLink({ href, newTab, children }) {
       href={href ? href : ''}
       _hover={href ? { cursor: 'pointer' } : { cursor: 'not-allowed' }}
       target={newTab && '_blank'}
+      width={'100%'}
     >
       {children}
     </Link>

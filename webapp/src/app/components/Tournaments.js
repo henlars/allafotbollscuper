@@ -31,6 +31,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
+import ListCard from './ListCard';
 
 export const Tournaments = ({ tournaments }) => {
   const [gridViewSelected, setGridViewSelected] = useState(true);
@@ -119,7 +120,7 @@ export const Tournaments = ({ tournaments }) => {
                   setGridViewSelected(false);
                   if (tournaments.length > 0) {
                     setPageSize(
-                      tournaments.length > 2 ? 3 : tournaments.length
+                      tournaments.length > 2 ? 6 : tournaments.length
                     );
                   }
                 }}
@@ -209,7 +210,7 @@ export const Tournaments = ({ tournaments }) => {
           }}
           mt={'40px'}
           templateColumns={gridViewSelected ? gridColumns : 'repeat(1, 1fr)'}
-          templateRows={gridViewSelected ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'}
+          templateRows={gridViewSelected ? 'repeat(2, 1fr)' : 'repeat(6, 1fr)'}
           p={0}
           justifyItems={'center'}
           w={!gridViewSelected && '100%'}
@@ -225,11 +226,11 @@ export const Tournaments = ({ tournaments }) => {
                 ))
             : tournaments
                 .slice(
-                  currentPage == 1 ? 0 : currentPage * 3 - 3,
-                  currentPage * 3
+                  currentPage == 1 ? 0 : currentPage * pageSize - pageSize,
+                  currentPage * pageSize
                 )
                 ?.map((tournament, index) => (
-                  <Card {...tournament} key={index} />
+                  <ListCard {...tournament} key={index} />
                 ))}
         </Grid>
         <Pagination
