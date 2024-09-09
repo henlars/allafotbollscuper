@@ -29,18 +29,18 @@ const Footer = () => (
           Social:
         </Text>
         <ChakraNextLink href='mailto:henriklarssonmail@gmail.com' newTab>
-          <Flex>
+          <Flex justifyContent={'center'}>
             <FontAwesomeIcon icon={faEnvelope} color='white' fontSize='24px' />
           </Flex>{' '}
         </ChakraNextLink>
 
         <ChakraNextLink href='https://github.com/henlars'>
-          <Flex>
+          <Flex justifyContent={'center'}>
             <FontAwesomeIcon icon={faGithub} color='white' fontSize='24px' />
           </Flex>
         </ChakraNextLink>
         <ChakraNextLink href='https://www.linkedin.com/in/henrik-larsson-46470a192/'>
-          <Flex>
+          <Flex justifyContent={'center'}>
             <FontAwesomeIcon icon={faLinkedin} color='white' fontSize='24px' />
           </Flex>
         </ChakraNextLink>
