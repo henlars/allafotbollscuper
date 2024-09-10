@@ -1,11 +1,18 @@
-import data from '../../public/cuper2024.json';
+'use client';
+import initialData from '../../public/cuper2024.json';
 import Cards from './components/Cards';
 import { Box, Center, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Filters from './components/Filters';
 import Footer from './components/Footer';
 import { Tournaments } from './components/Tournaments';
+import { useState } from 'react';
 export default function Home() {
+  const [filteredData, setFilteredData] = useState(initialData);
+
+  const handleFilter = (updatedData) => {
+    setFilteredData(updatedData);
+  };
   return (
     <Box maxW={'1500px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
       <Box pt={'40%'} position={'relative'}>
@@ -31,10 +38,10 @@ export default function Home() {
           top={0}
           backgroundColor={'rgba(0, 0, 0, 0.8)'}
         >
-          <Filters></Filters>
+          <Filters data={initialData} onFilter={handleFilter}></Filters>
         </Center>
       </Box>
-      <Tournaments tournaments={data}></Tournaments>
+      <Tournaments tournaments={filteredData}></Tournaments>
       <Footer></Footer>
     </Box>
   );

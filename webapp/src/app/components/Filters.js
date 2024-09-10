@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Flex,
   Select,
@@ -16,7 +16,7 @@ import {
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function Filters() {
+export default function Filters({ data, onFilter }) {
   const [selectedFilters, setSelectedFilters] = useState({
     months: [],
     gender: 'Alla',
@@ -27,7 +27,7 @@ export default function Filters() {
   const counties = ['Göteborg', 'Stockholm'];
   const ages = ['2010', '2009'];
   const genders = ['Tjej', 'Pojk'];
-  const months = ['januari', 'februari', 'mars'];
+  const months = ['Januari', 'Februari', 'Mars'];
   const years = ['2024', '2025'];
   const countyMenuButtonText = () => {
     if (selectedFilters.counties.length == 1) {
@@ -50,7 +50,29 @@ export default function Filters() {
       return selectedFilters.years.length + ' år valda';
     } else return 'Alla';
   };
+  const handleFilterChange = (filterKey, filterValue) => {
+    setSelectedFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterKey]: filterValue,
+    }));
+  };
+  useEffect(() => {
+    const filteredData = data.filter((item) => {
+      return (
+        (selectedFilters.months.includes(item.month) ||
+          selectedFilters.months.length == 0) &&
+        (selectedFilters.gender === 'Alla' ||
+          item.gender === selectedFilters.gender) &&
+        (selectedFilters.age === 'Alla' || item.age === selectedFilters.age) &&
+        (selectedFilters.counties.includes(item.county) ||
+          selectedFilters.counties.length == 0) &&
+        (selectedFilters.years.includes(item.year) ||
+          selectedFilters.years.length == 0)
+      );
+    });
 
+    onFilter(filteredData);
+  }, [selectedFilters]);
   return (
     <>
       <Flex borderRadius='5%' height={'500px'} w={'500px'} background='white'>
@@ -92,12 +114,8 @@ export default function Filters() {
                 <MenuList minWidth={'202.5px'} zIndex={20}>
                   <MenuOptionGroup
                     type='radio'
-                    onChange={(e) => {
-                      setSelectedFilters({
-                        ...selectedFilters,
-                        age: e,
-                      });
-                    }}
+                    onChange={(e) => handleFilterChange('age', e)}
+                    value={selectedFilters.age}
                   >
                     <MenuItemOption value='Alla' key='Alla'>
                       Alla
@@ -131,12 +149,8 @@ export default function Filters() {
                 <MenuList minWidth={'202.5px'} zIndex={20}>
                   <MenuOptionGroup
                     type='radio'
-                    onChange={(e) => {
-                      setSelectedFilters({
-                        ...selectedFilters,
-                        gender: e,
-                      });
-                    }}
+                    onChange={(e) => handleFilterChange('gender', e)}
+                    value={selectedFilters.gender}
                   >
                     <MenuItemOption value='Alla' key='Alla'>
                       Alla
@@ -172,12 +186,8 @@ export default function Filters() {
               <MenuList minWidth={'450px'} zIndex={20}>
                 <MenuOptionGroup
                   type='checkbox'
-                  onChange={(e) => {
-                    setSelectedFilters({
-                      ...selectedFilters,
-                      counties: e,
-                    });
-                  }}
+                  onChange={(e) => handleFilterChange('counties', e)}
+                  value={selectedFilters.counties}
                 >
                   {counties.map((county) => (
                     <MenuItemOption key={county} value={county}>
@@ -215,12 +225,8 @@ export default function Filters() {
                   <MenuList minWidth={'202.5px'}>
                     <MenuOptionGroup
                       type='checkbox'
-                      onChange={(e) => {
-                        setSelectedFilters({
-                          ...selectedFilters,
-                          months: e,
-                        });
-                      }}
+                      onChange={(e) => handleFilterChange('months', e)}
+                      value={selectedFilters.months}
                     >
                       {months.map((month) => (
                         <MenuItemOption key={month} value={month}>
@@ -252,12 +258,8 @@ export default function Filters() {
                   <MenuList minWidth={'202.5px'}>
                     <MenuOptionGroup
                       type='checkbox'
-                      onChange={(e) => {
-                        setSelectedFilters({
-                          ...selectedFilters,
-                          years: e,
-                        });
-                      }}
+                      onChange={(e) => handleFilterChange('years', e)}
+                      value={selectedFilters.years}
                     >
                       {years.map((year) => (
                         <MenuItemOption key={year} value={year}>
@@ -287,6 +289,7 @@ export default function Filters() {
                   counties: [],
                   years: [],
                 });
+                onFilter(data);
               }}
               padding={'8px'}
               width={'75px'}
