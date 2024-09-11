@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-allafotbollscuper-dev-223cf-authRole",
+      "UnauthRoleArn": "arn:aws:iam::780264188467:role/amplify-allafotbollscuper-dev-223cf-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::780264188467:role/amplify-allafotbollscuper-dev-223cf-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-allafotbollscuper-dev-223cf-deployment",
+      "UnauthRoleName": "amplify-allafotbollscuper-dev-223cf-unauthRole",
+      "StackName": "amplify-allafotbollscuper-dev-223cf",
+      "StackId": "arn:aws:cloudformation:eu-north-1:780264188467:stack/amplify-allafotbollscuper-dev-223cf/f3e0b4c0-7027-11ef-8e00-0a37dcb6b1eb",
+      "AmplifyAppId": "d24e87ywruqtb5"
+    }
+  }
+}
