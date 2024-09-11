@@ -7,6 +7,11 @@ import Filters from './components/Filters';
 import Footer from './components/Footer';
 import { Tournaments } from './components/Tournaments';
 import { useState } from 'react';
+import { Amplify } from 'aws-amplify';
+import outputs from '../../amplify_outputs.json';
+import Create from './Create';
+
+Amplify.configure(outputs);
 export default function Home() {
   const [filteredData, setFilteredData] = useState(initialData);
 
@@ -15,6 +20,7 @@ export default function Home() {
   };
   return (
     <Box maxW={'1500px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
+      <Create></Create>
       <Box pt={'40%'} position={'relative'}>
         <Image
           src={'/winner.jpeg'} // Replace with your image path
