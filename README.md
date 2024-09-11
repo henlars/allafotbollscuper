@@ -26,7 +26,7 @@ As a coach, I struggled to find a user-friendly platform for discovering youth s
 ### Installation
 ```bash
 git clone https://github.com/henlars/allafotbollscuper.git
-cd allafotbollscuper/webapp
+cd allafotbollscuper
 npm install
 ```
 
