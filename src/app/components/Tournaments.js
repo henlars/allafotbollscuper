@@ -1,18 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import {
-  Grid,
-  Text,
-  Stack,
-  Flex,
-  Box,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuOptionGroup,
-  MenuItemOption,
-  Button,
-} from '@chakra-ui/react';
+import { Grid, Text, Stack, Flex } from '@chakra-ui/react';
 import {
   Pagination,
   usePagination,
@@ -27,7 +15,6 @@ import Image from 'next/image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faChevronDown,
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
@@ -62,9 +49,6 @@ export const Tournaments = ({ tournaments }) => {
   });
 
   const handlePageChange = (nextPage) => {
-    console.log(nextPage);
-    console.log(currentPage);
-
     setCurrentPage(nextPage);
   };
 
