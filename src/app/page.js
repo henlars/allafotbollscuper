@@ -1,54 +1,12 @@
-'use client';
-import initialData from '../../public/cuper2024.json';
-import Cards from './components/Cards';
-import { Box, Center, Text } from '@chakra-ui/react';
-import Image from 'next/image';
-import Filters from './components/Filters';
-import Footer from './components/Footer';
-import { Tournaments } from './components/Tournaments';
-import { useState } from 'react';
 import { Amplify } from 'aws-amplify';
 import outputs from '../../amplify_outputs.json';
-import Create from './Create';
-
+import { generateClient } from 'aws-amplify/data';
+import Content from './components/Content';
 Amplify.configure(outputs);
-export default function Home() {
-  const [filteredData, setFilteredData] = useState(initialData);
+export default async function Home() {
+  const client = generateClient();
 
-  const handleFilter = (updatedData) => {
-    setFilteredData(updatedData);
-  };
-  return (
-    <Box maxW={'1500px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
-      <Create></Create>
-      <Box pt={'40%'} position={'relative'}>
-        <Image
-          src={'/winner.jpeg'} // Replace with your image path
-          alt='Image description'
-          fill
-        />
-        <Text
-          position={'absolute'}
-          top={'3%'}
-          left={'3%'}
-          zIndex={2}
-          color={'white'}
-          fontSize={'xx-large'}
-        >
-          allafotbollscuper.se
-        </Text>
-        <Center
-          height={'100%'}
-          position={'absolute'}
-          width={'100%'}
-          top={0}
-          backgroundColor={'rgba(0, 0, 0, 0.8)'}
-        >
-          <Filters data={initialData} onFilter={handleFilter}></Filters>
-        </Center>
-      </Box>
-      <Tournaments tournaments={filteredData}></Tournaments>
-      <Footer></Footer>
-    </Box>
-  );
+  const { data } = await client.models.Tournament.list();
+
+  return <Content data={data}></Content>;
 }
