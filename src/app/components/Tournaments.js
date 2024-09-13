@@ -84,8 +84,8 @@ export const Tournaments = ({ tournaments }) => {
           {gridViewSelected ? (
             <>
               <Flex
-                width={'70px'}
-                height={'70px'}
+                width={{ sm: '33px', '2xl': '50px', '3xl': '70px' }}
+                height={{ sm: '33px', '2xl': '50px', '3xl': '70px' }}
                 position={'relative'}
                 cursor={'pointer'}
               >
@@ -97,8 +97,8 @@ export const Tournaments = ({ tournaments }) => {
                 ></Image>
               </Flex>
               <Flex
-                width={'70px'}
-                height={'70px'}
+                width={{ sm: '33px', '2xl': '50px', '3xl': '70px' }}
+                height={{ sm: '33px', '2xl': '50px', '3xl': '70px' }}
                 position={'relative'}
                 onClick={() => {
                   setGridViewSelected(false);
