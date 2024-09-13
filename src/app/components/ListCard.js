@@ -13,7 +13,7 @@ function ListCard({ month, name, club, date, category, link }) {
       >
         <Image
           width={'10%'}
-          src={'/kids_playing.jpeg'}
+          src={'/kids_playing.webp'}
           alt={name}
           borderRadius='10px 0 0 10px'
         />
