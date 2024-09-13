@@ -8,6 +8,7 @@ function Card({ month, name, club, date, category, link }) {
       <Box
         backgroundColor={'white'}
         maxW='350px'
+        w='350px'
         borderRadius={'5%'}
         overflow='hidden'
       >
