@@ -90,7 +90,7 @@ export const Tournaments = ({ tournaments }) => {
                 cursor={'pointer'}
               >
                 <Image
-                  src='/grid_selected.svg'
+                  src='/grid_selected.webp'
                   fill
                   sizes='50px'
                   alt='grid selected'
@@ -111,7 +111,7 @@ export const Tournaments = ({ tournaments }) => {
                 cursor={'pointer'}
               >
                 <Image
-                  src='/list_unselected.svg'
+                  src='/list_unselected.webp'
                   fill
                   sizes='50px'
                   alt='list unselected'
@@ -135,7 +135,7 @@ export const Tournaments = ({ tournaments }) => {
                 cursor={'pointer'}
               >
                 <Image
-                  src='/grid_unselected.svg'
+                  src='/grid_unselected.webp'
                   fill
                   sizes='30px'
                   alt='grid unselected'
@@ -148,7 +148,7 @@ export const Tournaments = ({ tournaments }) => {
                 cursor={'pointer'}
               >
                 <Image
-                  src='/list_selected.svg'
+                  src='/list_selected.webp'
                   fill
                   sizes='30px'
                   alt='list selected'

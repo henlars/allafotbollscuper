@@ -19,7 +19,7 @@ export default function Content({ data }) {
       {/*  <Create></Create> <Batch></Batch> */}
       <Box pt={'40%'} position={'relative'}>
         <Image
-          src={'/winner.jpeg'} // Replace with your image path
+          src={'/winner.webp'} // Replace with your image path
           alt='Image description'
           fill
         />
