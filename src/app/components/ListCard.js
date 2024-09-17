@@ -1,5 +1,6 @@
-import { Box, Image, Heading, Text, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import ChakraNextLink from './Link';
+import Image from 'next/image';
 
 function ListCard({ month, name, club, date, category, link }) {
   return (
@@ -11,12 +12,9 @@ function ListCard({ month, name, club, date, category, link }) {
         overflow='hidden'
         margin={'auto'}
       >
-        <Image
-          width={'10%'}
-          src={'/kids_playing.webp'}
-          alt={name}
-          borderRadius='10px 0 0 10px'
-        />
+        <Flex position='relative' w={'10%'}>
+          <Image fill src={'/kids_playing.webp'} alt={name} />
+        </Flex>
         <Box
           width={'40%'}
           textAlign={'center'}
