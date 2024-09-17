@@ -94,6 +94,20 @@
               "isRequired": false,
               "attributes": []
             },
+            "year": {
+              "name": "year",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "county": {
+              "name": "county",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
             "createdAt": {
               "name": "createdAt",
               "isArray": false,
