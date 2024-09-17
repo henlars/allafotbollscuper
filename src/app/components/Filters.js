@@ -20,13 +20,15 @@ export default function Filters({ data, onFilter }) {
   const [selectedFilters, setSelectedFilters] = useState({
     months: [],
     gender: 'Alla',
+    genderCode: '',
     age: 'Alla',
+    ageCode: '',
     counties: [],
-    years: [],
+    year: '2024',
   });
-  const counties = ['Göteborg', 'Stockholm'];
+  const counties = ['Västra götalands län', 'Stockholm'];
   const ages = ['2010', '2009'];
-  const genders = ['Tjej', 'Pojk'];
+  const genders = ['Flick', 'Pojk'];
   const months = ['Januari', 'Februari', 'Mars'];
   const years = ['2024', '2025'];
   const countyMenuButtonText = () => {
@@ -43,18 +45,60 @@ export default function Filters({ data, onFilter }) {
       return selectedFilters.months.length + ' månader valda';
     } else return 'Alla';
   };
-  const yearMenuButtonText = () => {
-    if (selectedFilters.years.length == 1) {
-      return '1 år valt';
-    } else if (selectedFilters.years.length > 1) {
-      return selectedFilters.years.length + ' år valda';
-    } else return 'Alla';
-  };
+
   const handleFilterChange = (filterKey, filterValue) => {
-    setSelectedFilters((prevFilters) => ({
-      ...prevFilters,
-      [filterKey]: filterValue,
-    }));
+    if (filterKey == 'gender') {
+      let modifiedGender = '';
+      if (filterValue == 'Flick') {
+        modifiedGender = 'F';
+      } else if (filterValue == 'Pojk') {
+        modifiedGender = 'P';
+      } else {
+        modifiedGender = 'Alla';
+      }
+      setSelectedFilters((prevFilters) => ({
+        ...prevFilters,
+        [filterKey]: filterValue,
+        genderCode: modifiedGender,
+      }));
+    } else if (filterKey == 'age') {
+      let modifiedAge = parseInt(selectedFilters.year) - parseInt(filterValue);
+
+      setSelectedFilters((prevFilters) => ({
+        ...prevFilters,
+        [filterKey]: filterValue,
+        ageCode: modifiedAge,
+      }));
+    } else if (filterKey == 'months') {
+      if (filterValue.includes('Alla')) {
+        setSelectedFilters((prevFilters) => ({
+          ...prevFilters,
+          months: [],
+        }));
+      } else {
+        setSelectedFilters((prevFilters) => ({
+          ...prevFilters,
+          months: filterValue,
+        }));
+      }
+    } else if (filterKey == 'counties') {
+      if (filterValue.includes('Alla')) {
+        setSelectedFilters((prevFilters) => ({
+          ...prevFilters,
+          counties: [],
+        }));
+      } else {
+        setSelectedFilters((prevFilters) => ({
+          ...prevFilters,
+          counties: filterValue,
+        }));
+      }
+    } else {
+      setSelectedFilters((prevFilters) => ({
+        ...prevFilters,
+        [filterKey]: filterValue,
+      }));
+    }
   };
   useEffect(() => {
     const filteredData = data.filter((item) => {
@@ -62,12 +106,16 @@ export default function Filters({ data, onFilter }) {
         (selectedFilters.months.includes(item.month) ||
           selectedFilters.months.length == 0) &&
         (selectedFilters.gender === 'Alla' ||
-          item.gender === selectedFilters.gender) &&
-        (selectedFilters.age === 'Alla' || item.age === selectedFilters.age) &&
+          item.categories.some((category) =>
+            category.includes(selectedFilters.genderCode)
+          )) &&
+        (selectedFilters.age === 'Alla' ||
+          item.categories.some((category) =>
+            category.includes(selectedFilters.ageCode)
+          )) &&
         (selectedFilters.counties.includes(item.county) ||
           selectedFilters.counties.length == 0) &&
-        (selectedFilters.years.includes(item.year) ||
-          selectedFilters.years.length == 0)
+        selectedFilters.year == item.year
       );
     });
 
@@ -189,6 +237,9 @@ export default function Filters({ data, onFilter }) {
                   onChange={(e) => handleFilterChange('counties', e)}
                   value={selectedFilters.counties}
                 >
+                  <MenuItemOption value='Alla' key='Alla'>
+                    Alla
+                  </MenuItemOption>
                   {counties.map((county) => (
                     <MenuItemOption key={county} value={county}>
                       {county}
@@ -228,6 +279,9 @@ export default function Filters({ data, onFilter }) {
                       onChange={(e) => handleFilterChange('months', e)}
                       value={selectedFilters.months}
                     >
+                      <MenuItemOption value='Alla' key='Alla'>
+                        Alla
+                      </MenuItemOption>
                       {months.map((month) => (
                         <MenuItemOption key={month} value={month}>
                           {month}
@@ -253,13 +307,13 @@ export default function Filters({ data, onFilter }) {
                     fontWeight={'normal'}
                     h={'40px'}
                   >
-                    {yearMenuButtonText()}
+                    {selectedFilters.year}
                   </MenuButton>
                   <MenuList minWidth={'202.5px'}>
                     <MenuOptionGroup
-                      type='checkbox'
-                      onChange={(e) => handleFilterChange('years', e)}
-                      value={selectedFilters.years}
+                      type='radio'
+                      onChange={(e) => handleFilterChange('year', e)}
+                      value={selectedFilters.year}
                     >
                       {years.map((year) => (
                         <MenuItemOption key={year} value={year}>
@@ -285,9 +339,11 @@ export default function Filters({ data, onFilter }) {
                 setSelectedFilters({
                   months: [],
                   gender: 'Alla',
+                  genderCode: '',
                   age: 'Alla',
+                  ageCode: '',
                   counties: [],
-                  years: [],
+                  year: '2024',
                 });
                 onFilter(data);
               }}
@@ -297,7 +353,7 @@ export default function Filters({ data, onFilter }) {
             >
               Rensa{' '}
             </Button>
-            <Button
+            {/* <Button
               backgroundColor='black'
               color='white'
               onClick={() => console.log(selectedFilters)}
@@ -306,7 +362,7 @@ export default function Filters({ data, onFilter }) {
               _hover={{ backgroundColor: 'gray.800' }}
             >
               Sök
-            </Button>
+            </Button> */}
           </Flex>
         </Flex>
       </Flex>
