@@ -122,7 +122,6 @@ def extract_cup_data(element):
                 link.extract() 
               
               tournament_data = cup.text.split(" -")
-              
 
               data.append({
                       "month": current_month,
@@ -130,11 +129,12 @@ def extract_cup_data(element):
                       "club": tournament_data[1],
                       "date": tournament_data[2],
                       "categories": process_tournament_data(tournament_data),
+                      "categoriesSummary": tournament_data[3] + (" -" + tournament_data[4] if len(tournament_data) > 5 else ""),
                       "link": link['href'] if link else "",
                       "year": "2024"
                   })
               
- 
+    
     return data
 
 
