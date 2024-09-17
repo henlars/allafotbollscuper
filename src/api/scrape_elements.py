@@ -126,12 +126,13 @@ def extract_cup_data(element):
               data.append({
                       "month": current_month,
                       "name": tournament_data[0],
-                      "club": tournament_data[1],
-                      "date": tournament_data[2],
+                      "club": tournament_data[1].strip(),
+                      "date": tournament_data[2].strip(),
                       "categories": process_tournament_data(tournament_data),
-                      "categoriesSummary": tournament_data[3] + (" -" + tournament_data[4] if len(tournament_data) > 5 else ""),
+                      "categoriesSummary": tournament_data[3].strip() + (" -" + tournament_data[4].strip() if len(tournament_data) > 5 else ""),
                       "link": link['href'] if link else "",
-                      "year": "2024"
+                      "year": "2024",
+                      "county": "Västra götalands län"
                   })
               
     
