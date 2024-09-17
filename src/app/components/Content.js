@@ -22,6 +22,7 @@ export default function Content({ data }) {
           src={'/winner.webp'} // Replace with your image path
           alt='Image description'
           fill
+          priority
         />
         <Text
           position={'absolute'}
