@@ -11,6 +11,8 @@ const schema = a.schema({
       categories: a.string().array(),
       categoriesSummary: a.string(),
       link: a.string(),
+      year: a.string(),
+      county: a.string()
     })
     .authorization((allow) => [allow.guest()]),
 });
