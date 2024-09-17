@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
-/* import initialData from '../../public/cuper2024.json';
+/* import initialData from '../../api/cuper2024.json';
  */
 const tableName = 'Tournament-7o6tvbawmba43jgqg5z2xvmysq-NONE';
 
@@ -14,6 +14,7 @@ export default function Batch() {
   const batchSize = 25;
 
   const batchWriteRequests = [];
+  /* let data = initialData; */
   let data = [];
   while (data.length > 0) {
     const currentBatch = data.slice(0, batchSize);
