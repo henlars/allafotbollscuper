@@ -72,8 +72,16 @@
               "isRequired": false,
               "attributes": []
             },
-            "category": {
-              "name": "category",
+            "categories": {
+              "name": "categories",
+              "isArray": true,
+              "type": "String",
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "categoriesSummary": {
+              "name": "categoriesSummary",
               "isArray": false,
               "type": "String",
               "isRequired": false,
