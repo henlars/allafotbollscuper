@@ -2,7 +2,7 @@ import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import ChakraNextLink from './Link';
 import Image from 'next/image';
 
-function Card({ month, name, club, date, category, link }) {
+function Card({ month, name, club, date, categoriesSummary, link }) {
   return (
     <ChakraNextLink href={link}>
       <Box
@@ -29,7 +29,7 @@ function Card({ month, name, club, date, category, link }) {
           <Flex fontSize={'small'} placeContent={'space-between'}>
             <Box>
               <Text fontWeight={'bold'}>Åldersklass:</Text>
-              <Text mt={'5px'}>{category}</Text>
+              <Text mt={'5px'}>{categoriesSummary}</Text>
             </Box>
             <Box>
               <Text fontWeight={'bold'}>Arrangör:</Text>
