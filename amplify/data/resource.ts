@@ -9,6 +9,7 @@ const schema = a.schema({
       club: a.string(),
       date: a.string(),
       categories: a.string().array(),
+      categoriesSummary: a.string(),
       link: a.string(),
     })
     .authorization((allow) => [allow.guest()]),
