@@ -8,7 +8,7 @@ const schema = a.schema({
       month: a.string(),
       club: a.string(),
       date: a.string(),
-      category: a.string(),
+      categories: a.string().array(),
       link: a.string(),
     })
     .authorization((allow) => [allow.guest()]),
