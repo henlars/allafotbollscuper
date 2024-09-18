@@ -27,10 +27,30 @@ export default function Filters({ data, onFilter }) {
     year: '2024',
   });
   const counties = ['Västra götalands län', 'Stockholm'];
-  const ages = ['2010', '2009'];
-  const genders = ['Flick', 'Pojk'];
-  const months = ['Januari', 'Februari', 'Mars'];
+  const genders = ['Flick', 'Pojk', 'Dam', 'Herr'];
   const years = ['2024', '2025'];
+  function getBirthYears() {
+    const birthYears = [];
+    const currentYear = new Date().getFullYear();
+
+    for (let year = currentYear - 5; year >= currentYear - 19; year--) {
+      birthYears.push(year.toString());
+    }
+
+    return birthYears;
+  }
+  function getMonthNames() {
+    const months = [];
+    for (let i = 0; i < 12; i++) {
+      const month = new Date(2024, i, 1).toLocaleString('sv-SE', {
+        month: 'long',
+      });
+      const capitalizedMonth =
+        month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
+      months.push(capitalizedMonth);
+    }
+    return months;
+  }
   const countyMenuButtonText = () => {
     if (selectedFilters.counties.length == 1) {
       return '1 län valt';
@@ -53,6 +73,10 @@ export default function Filters({ data, onFilter }) {
         modifiedGender = 'F';
       } else if (filterValue == 'Pojk') {
         modifiedGender = 'P';
+      } else if (filterValue == 'Herr') {
+        modifiedGender = 'Herr';
+      } else if (filterValue == 'Dam') {
+        modifiedGender = 'Dam';
       } else {
         modifiedGender = 'Alla';
       }
@@ -142,7 +166,7 @@ export default function Filters({ data, onFilter }) {
             mt={'30px'}
           >
             <Box w={'45%'}>
-              <FormLabel htmlFor='age'>Ålder</FormLabel>
+              <FormLabel htmlFor='age'>{'Åldersgrupp (födelseår)'}</FormLabel>
 
               <Menu closeOnSelect={false} flip={false} id='age'>
                 <MenuButton
@@ -168,7 +192,7 @@ export default function Filters({ data, onFilter }) {
                     <MenuItemOption value='Alla' key='Alla'>
                       Alla
                     </MenuItemOption>
-                    {ages.map((age) => (
+                    {getBirthYears().map((age) => (
                       <MenuItemOption key={age} value={age}>
                         {age}
                       </MenuItemOption>
@@ -178,7 +202,7 @@ export default function Filters({ data, onFilter }) {
               </Menu>
             </Box>
             <Box w={'45%'}>
-              <FormLabel htmlFor='gender'>Kön</FormLabel>
+              <FormLabel htmlFor='gender'>Kategori</FormLabel>
               <Menu closeOnSelect={false} flip={false} id='gender'>
                 <MenuButton
                   as={Button}
@@ -282,7 +306,7 @@ export default function Filters({ data, onFilter }) {
                       <MenuItemOption value='Alla' key='Alla'>
                         Alla
                       </MenuItemOption>
-                      {months.map((month) => (
+                      {getMonthNames().map((month) => (
                         <MenuItemOption key={month} value={month}>
                           {month}
                         </MenuItemOption>
