@@ -33,7 +33,7 @@ export default function Filters({ data, onFilter }) {
     const birthYears = [];
     const currentYear = new Date().getFullYear();
 
-    for (let year = currentYear - 5; year >= currentYear - 19; year--) {
+    for (let year = currentYear - 6; year >= currentYear - 19; year--) {
       birthYears.push(year.toString());
     }
 
@@ -87,6 +87,8 @@ export default function Filters({ data, onFilter }) {
       }));
     } else if (filterKey == 'age') {
       let modifiedAge = parseInt(selectedFilters.year) - parseInt(filterValue);
+      modifiedAge =
+        modifiedAge < 10 ? `0${modifiedAge}` : modifiedAge.toString();
 
       setSelectedFilters((prevFilters) => ({
         ...prevFilters,
