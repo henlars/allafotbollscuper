@@ -4,13 +4,21 @@ import json
 import re
 def modify_pattern_with_dash_and_one_gender(input_string):
     pattern = r"(F|P)(\d+)-(\d+)"
+    pattern2 = r"(F|P)(\d+)-(F|P)(\d+)"
     # Find the match and extract the numbers
     match = re.search(pattern, input_string)
+    match2 = re.search(pattern2, input_string)
+
     if match:
         replacement = "".join(r"\1/" + f"{num}" for num in range(int(match.group(2)), int(match.group(3)) + 1))
         
         # Perform the substitution
         return re.sub(pattern, replacement, input_string)
+    elif match2:
+        replacement = "".join(r"\1/" + f"{num}" for num in range(int(match2.group(2)), int(match2.group(4)) + 1))
+        
+        # Perform the substitution
+        return re.sub(pattern2, replacement, input_string)
     else:
         return input_string
 def modify_patternFP_with_dash(input_string):
@@ -119,7 +127,6 @@ def extract_cup_data(element):
       # Remove any empty strings from the beginning of the list
       while result and result[0] == "":
         result.pop(0)
-    
       return result
            
     
@@ -155,17 +162,17 @@ def scrape_tournament_data(url, text_to_find):
     
     try:
         # Fetch the webpage content
-        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
-        response.raise_for_status()  # Raise exception for HTTP errors
+        """ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        response.raise_for_status()  # Raise exception for HTTP errors """
         """ save = BeautifulSoup(response.text, 'html.parser')
 
         with open("index.html", "w", encoding="utf-8") as f:
           f.write(str(save)) """
-        """ with open("index.html", "r", encoding="utf-8") as f:
-          content = f.read() """
+        with open("index.html", "r", encoding="utf-8") as f:
+          content = f.read()
         # Parse the HTML content
-        """ soup = BeautifulSoup(content, 'lxml') """
-        soup = BeautifulSoup(response.text, 'lxml')
+        soup = BeautifulSoup(content, 'lxml')
+        """ soup = BeautifulSoup(response.text, 'lxml') """
         # Find all span elements
         spans = soup.find_all('span')
 
