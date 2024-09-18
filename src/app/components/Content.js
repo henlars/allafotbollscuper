@@ -5,6 +5,8 @@ import Filters from './Filters';
 import Footer from './Footer';
 import { Tournaments } from './Tournaments';
 import { useState } from 'react';
+import ChakraNextLink from './Link';
+
 /* import Batch from './Batch';
 import Create from './Create';
  */
@@ -24,16 +26,18 @@ export default function Content({ data }) {
           fill
           priority
         />
-        <Text
-          position={'absolute'}
-          top={'3%'}
-          left={'3%'}
-          zIndex={2}
-          color={'white'}
-          fontSize={'xx-large'}
-        >
-          allafotbollscuper.se
-        </Text>
+        <ChakraNextLink href={'/'}>
+          <Text
+            position={'absolute'}
+            top={'3%'}
+            left={'3%'}
+            zIndex={2}
+            color={'white'}
+            fontSize={'xx-large'}
+          >
+            allafotbollscuper.se
+          </Text>
+        </ChakraNextLink>
         <Center
           height={'100%'}
           position={'absolute'}
