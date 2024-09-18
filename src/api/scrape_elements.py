@@ -74,7 +74,17 @@ def modify_patternFP(input_string):
   pattern = r"F/P(\d+)"
   replacement = r"F\1/P\1"
   return re.sub(pattern, replacement, input_string)
-
+def add_zero_before_one_digit(array):
+    modified_array = []
+    for element in array:
+      if element.startswith('P') or element.startswith('F'):
+        if len(element[1:]) == 1:
+          modified_array.append(f"{element[0]}0{element[1:]}")
+        else:
+          modified_array.append(element)
+      else:
+        modified_array.append(element)
+    return modified_array
 def extract_cup_data(element):
     data = []
     months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"]
@@ -99,11 +109,13 @@ def extract_cup_data(element):
           processed_string += modify_patternPF(subitem)  
           
         else:
-          processed_string = raw_data       
+          processed_string = raw_data.strip()       
       processed_string = processed_string.replace('/', '')
+      
+
       pattern = r"(?=(?:F|P))"  
       result = re.split(pattern, processed_string)
-
+      result = add_zero_before_one_digit(result)
       # Remove any empty strings from the beginning of the list
       while result and result[0] == "":
         result.pop(0)
@@ -134,21 +146,12 @@ def extract_cup_data(element):
                       "year": "2024",
                       "county": "Västra götalands län"
                   })
-              
-    
+                     
     return data
 
 
 def scrape_tournament_data(url, text_to_find):
-    """Scrapes a webpage and extracts data based on months and elements within the found element.
-
-    Args:
-        url (str): The URL of the webpage to scrape.
-        text_to_find (str): The text to search for within the webpage.
-
-    Returns:
-        list: A list of dictionaries containing the extracted data.
-    """
+   
     
     try:
         # Fetch the webpage content
@@ -157,12 +160,12 @@ def scrape_tournament_data(url, text_to_find):
         """ save = BeautifulSoup(response.text, 'html.parser')
 
         with open("index.html", "w", encoding="utf-8") as f:
-          f.write(str(save)) 
-        with open("index.html", "r", encoding="utf-8") as f:
-          content = f.read()"""
+          f.write(str(save)) """
+        """ with open("index.html", "r", encoding="utf-8") as f:
+          content = f.read() """
         # Parse the HTML content
+        """ soup = BeautifulSoup(content, 'lxml') """
         soup = BeautifulSoup(response.text, 'lxml')
-
         # Find all span elements
         spans = soup.find_all('span')
 
