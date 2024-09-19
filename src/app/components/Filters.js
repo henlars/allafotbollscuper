@@ -149,7 +149,22 @@ export default function Filters({ data, onFilter }) {
   }, [selectedFilters]);
   return (
     <>
-      <Flex borderRadius='5%' height={'500px'} w={'500px'} background='white'>
+      <Flex
+        borderRadius='5%'
+        height={{
+          sm: '180px',
+          md: '350px',
+          lg: '350px',
+          xl: '500px',
+        }}
+        w={{
+          sm: '180px',
+          md: '350px',
+          lg: '350px',
+          xl: '500px',
+        }}
+        background='white'
+      >
         <Flex
           flexDirection={'column'}
           alignItems='center'
@@ -158,17 +173,35 @@ export default function Filters({ data, onFilter }) {
           margin={'auto'}
           placeContent={'center'}
         >
-          <Text color={'black'} fontSize={'30px'}>
+          <Text
+            color={'black'}
+            fontSize={{
+              sm: 'xs',
+              md: 'x-large',
+              lg: 'x-large',
+              xl: 'xx-large',
+            }}
+          >
             Sök cuper i hela Sverige
           </Text>
           <Flex
             flexDirection='row'
             w={'100%'}
             placeContent='space-between'
-            mt={'30px'}
+            mt={{ sm: '2%', lg: '5%' }}
           >
             <Box w={'45%'}>
-              <FormLabel htmlFor='age'>{'Åldersgrupp (födelseår)'}</FormLabel>
+              <FormLabel
+                htmlFor='age'
+                fontSize={{
+                  sm: '2xs',
+                  md: 'md',
+                  lg: 'md',
+                  xl: 'lg',
+                }}
+              >
+                {'Åldersgrupp'}
+              </FormLabel>
 
               <Menu closeOnSelect={false} flip={false} id='age'>
                 <MenuButton
@@ -181,7 +214,18 @@ export default function Filters({ data, onFilter }) {
                   color='black'
                   fontWeight={'normal'}
                   width={'100%'}
-                  h={'40px'}
+                  h={{
+                    sm: '15px',
+                    md: '30px',
+                    lg: '30px',
+                    xl: '40px',
+                  }}
+                  fontSize={{
+                    sm: '2xs',
+                    md: 'md',
+                    lg: 'md',
+                    xl: 'lg',
+                  }}
                 >
                   {selectedFilters.age}
                 </MenuButton>
@@ -204,7 +248,17 @@ export default function Filters({ data, onFilter }) {
               </Menu>
             </Box>
             <Box w={'45%'}>
-              <FormLabel htmlFor='gender'>Kategori</FormLabel>
+              <FormLabel
+                htmlFor='gender'
+                fontSize={{
+                  sm: '2xs',
+                  md: 'md',
+                  lg: 'md',
+                  xl: 'lg',
+                }}
+              >
+                Kategori
+              </FormLabel>
               <Menu closeOnSelect={false} flip={false} id='gender'>
                 <MenuButton
                   as={Button}
@@ -216,7 +270,18 @@ export default function Filters({ data, onFilter }) {
                   color='black'
                   fontWeight={'normal'}
                   width={'100%'}
-                  h={'40px'}
+                  h={{
+                    sm: '15px',
+                    md: '30px',
+                    lg: '30px',
+                    xl: '40px',
+                  }}
+                  fontSize={{
+                    sm: '2xs',
+                    md: 'md',
+                    lg: 'md',
+                    xl: 'lg',
+                  }}
                 >
                   {selectedFilters.gender}
                 </MenuButton>
@@ -240,8 +305,18 @@ export default function Filters({ data, onFilter }) {
             </Box>
           </Flex>
 
-          <Flex w={'100%'} flexDirection={'column'} mt={'30px'}>
-            <FormLabel htmlFor='counties'>Län</FormLabel>
+          <Flex w={'100%'} flexDirection={'column'} mt={{ sm: '2%', lg: '5%' }}>
+            <FormLabel
+              htmlFor='counties'
+              fontSize={{
+                sm: '2xs',
+                md: 'md',
+                lg: 'md',
+                xl: 'lg',
+              }}
+            >
+              Län
+            </FormLabel>
             <Menu closeOnSelect={false} flip={false} id='counties'>
               <MenuButton
                 as={Button}
@@ -253,7 +328,18 @@ export default function Filters({ data, onFilter }) {
                 color='black'
                 fontWeight={'normal'}
                 width={'100%'}
-                h={'40px'}
+                h={{
+                  sm: '15px',
+                  md: '30px',
+                  lg: '30px',
+                  xl: '40px',
+                }}
+                fontSize={{
+                  sm: '2xs',
+                  md: 'md',
+                  lg: 'md',
+                  xl: 'lg',
+                }}
               >
                 {countyMenuButtonText()}
               </MenuButton>
@@ -279,11 +365,21 @@ export default function Filters({ data, onFilter }) {
             flexDirection='row'
             w={'100%'}
             placeContent='space-between'
-            mt={'30px'}
+            mt={{ sm: '2%', lg: '5%' }}
           >
             <Box w={'45%'}>
               <Flex w={'100%'} flexDirection={'column'}>
-                <FormLabel htmlFor='months'>Månad</FormLabel>
+                <FormLabel
+                  htmlFor='months'
+                  fontSize={{
+                    sm: '2xs',
+                    md: 'md',
+                    lg: 'md',
+                    xl: 'lg',
+                  }}
+                >
+                  Månad
+                </FormLabel>
                 <Menu closeOnSelect={false} flip={false} id='months'>
                   <MenuButton
                     as={Button}
@@ -295,7 +391,18 @@ export default function Filters({ data, onFilter }) {
                     color='black'
                     fontWeight={'normal'}
                     width={'100%'}
-                    h={'40px'}
+                    h={{
+                      sm: '15px',
+                      md: '30px',
+                      lg: '30px',
+                      xl: '40px',
+                    }}
+                    fontSize={{
+                      sm: '2xs',
+                      md: 'md',
+                      lg: 'md',
+                      xl: 'lg',
+                    }}
                   >
                     {monthMenuButtonText()}
                   </MenuButton>
@@ -320,7 +427,17 @@ export default function Filters({ data, onFilter }) {
             </Box>
             <Box w={'45%'}>
               <Flex w={'100%'} flexDirection={'column'}>
-                <FormLabel htmlFor='years'>År</FormLabel>
+                <FormLabel
+                  htmlFor='years'
+                  fontSize={{
+                    sm: '2xs',
+                    md: 'md',
+                    lg: 'md',
+                    xl: 'lg',
+                  }}
+                >
+                  År
+                </FormLabel>
                 <Menu closeOnSelect={false} flip={false} id='years'>
                   <MenuButton
                     as={Button}
@@ -331,7 +448,18 @@ export default function Filters({ data, onFilter }) {
                     backgroundColor={'transparent'}
                     color='black'
                     fontWeight={'normal'}
-                    h={'40px'}
+                    h={{
+                      sm: '15px',
+                      md: '30px',
+                      lg: '30px',
+                      xl: '40px',
+                    }}
+                    fontSize={{
+                      sm: '2xs',
+                      md: 'md',
+                      lg: 'md',
+                      xl: 'lg',
+                    }}
                   >
                     {selectedFilters.year}
                   </MenuButton>
@@ -355,7 +483,7 @@ export default function Filters({ data, onFilter }) {
           <Flex
             flexDirection={'row'}
             placeContent='space-evenly'
-            mt={'30px'}
+            mt={{ sm: '2%', lg: '5%' }}
             w='80%'
           >
             <Button

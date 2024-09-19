@@ -13,7 +13,7 @@ function ListCard({ month, name, club, date, categoriesSummary, link }) {
         margin={'auto'}
       >
         <Flex position='relative' w={'10%'}>
-          <Image fill src={'/kids_playing.webp'} alt={name} />
+          <Image fill src={'/kids_playing.webp'} alt={name} sizes={'300px'} />
         </Flex>
         <Box
           width={'40%'}

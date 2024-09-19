@@ -17,9 +17,9 @@ export default function Content({ data }) {
     setFilteredData(updatedData);
   };
   return (
-    <Box maxW={'1500px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
+    <Box maxW={'1440px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
       {/*  <Create></Create> <Batch></Batch> */}
-      <Box pt={'40%'} position={'relative'}>
+      <Box pt={{ sm: '60%', lg: '40%' }} position={'relative'}>
         <Image
           src={'/winner.webp'} // Replace with your image path
           alt='Image description'
@@ -33,7 +33,12 @@ export default function Content({ data }) {
             left={'3%'}
             zIndex={2}
             color={'white'}
-            fontSize={'xx-large'}
+            fontSize={{
+              sm: '2xs',
+              md: 'large',
+              lg: 'x-large',
+              xl: 'xx-large',
+            }}
           >
             allafotbollscuper.se
           </Text>

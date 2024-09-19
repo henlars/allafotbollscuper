@@ -11,10 +11,7 @@ export function Providers({ children }) {
     '2xl': '1600px',
     '3xl': '2000px',
   };
-  const fonts = {
-    heading: `'Gill Sans', sans-serif;`,
-    body: `'SF UI Display', sans-serif`,
-  };
-  const theme = extendTheme({ breakpoints, fonts });
+
+  const theme = extendTheme({ breakpoints });
   return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 }

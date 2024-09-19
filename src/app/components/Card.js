@@ -13,7 +13,7 @@ function Card({ month, name, club, date, categoriesSummary, link }) {
         overflow='hidden'
       >
         <Flex position='relative' w={'100%'} p='33%'>
-          <Image fill src={'/kids_playing.webp'} alt={name} />
+          <Image fill src={'/kids_playing.webp'} alt={name} sizes={'300px'} />
         </Flex>
         <Box p={'15px'}>
           <Flex
