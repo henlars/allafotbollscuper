@@ -194,9 +194,9 @@ export default function Filters({ data, onFilter }) {
               <FormLabel
                 htmlFor='age'
                 fontSize={{
-                  sm: 'sm',
-                  md: 'md',
-                  lg: 'md',
+                  sm: '2xs',
+                  md: 'sm',
+                  lg: 'sm',
                   xl: 'lg',
                 }}
               >
@@ -221,17 +221,20 @@ export default function Filters({ data, onFilter }) {
                     xl: '40px',
                   }}
                   fontSize={{
-                    sm: 'sm',
-                    md: 'md',
-                    lg: 'md',
+                    sm: '3xs',
+                    md: 'xs',
+                    lg: 'xs',
                     xl: 'lg',
+                  }}
+                  padding={{
+                    sm: '10%',
                   }}
                 >
                   {selectedFilters.age}
                 </MenuButton>
                 <MenuList
                   minWidth={{
-                    sm: '101.25px',
+                    sm: '97.2px',
                     md: '141.75px',
                     xl: '202.5px',
                   }}
@@ -242,11 +245,19 @@ export default function Filters({ data, onFilter }) {
                     onChange={(e) => handleFilterChange('age', e)}
                     value={selectedFilters.age}
                   >
-                    <MenuItemOption value='Alla' key='Alla'>
+                    <MenuItemOption
+                      value='Alla'
+                      key='Alla'
+                      fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                    >
                       Alla
                     </MenuItemOption>
                     {getBirthYears().map((age) => (
-                      <MenuItemOption key={age} value={age}>
+                      <MenuItemOption
+                        key={age}
+                        value={age}
+                        fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                      >
                         {age}
                       </MenuItemOption>
                     ))}
@@ -258,9 +269,9 @@ export default function Filters({ data, onFilter }) {
               <FormLabel
                 htmlFor='gender'
                 fontSize={{
-                  sm: 'sm',
-                  md: 'md',
-                  lg: 'md',
+                  sm: '2xs',
+                  md: 'sm',
+                  lg: 'sm',
                   xl: 'lg',
                 }}
               >
@@ -284,17 +295,20 @@ export default function Filters({ data, onFilter }) {
                     xl: '40px',
                   }}
                   fontSize={{
-                    sm: 'sm',
-                    md: 'md',
-                    lg: 'md',
+                    sm: '3xs',
+                    md: 'xs',
+                    lg: 'xs',
                     xl: 'lg',
+                  }}
+                  padding={{
+                    sm: '10%',
                   }}
                 >
                   {selectedFilters.gender}
                 </MenuButton>
                 <MenuList
                   minWidth={{
-                    sm: '101.25px',
+                    sm: '97.2px',
                     md: '141.75px',
                     xl: '202.5px',
                   }}
@@ -305,11 +319,19 @@ export default function Filters({ data, onFilter }) {
                     onChange={(e) => handleFilterChange('gender', e)}
                     value={selectedFilters.gender}
                   >
-                    <MenuItemOption value='Alla' key='Alla'>
+                    <MenuItemOption
+                      value='Alla'
+                      key='Alla'
+                      fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                    >
                       Alla
                     </MenuItemOption>
                     {genders.map((gender) => (
-                      <MenuItemOption key={gender} value={gender}>
+                      <MenuItemOption
+                        key={gender}
+                        value={gender}
+                        fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                      >
                         {gender}
                       </MenuItemOption>
                     ))}
@@ -323,9 +345,9 @@ export default function Filters({ data, onFilter }) {
             <FormLabel
               htmlFor='counties'
               fontSize={{
-                sm: 'sm',
-                md: 'md',
-                lg: 'md',
+                sm: '2xs',
+                md: 'sm',
+                lg: 'sm',
                 xl: 'lg',
               }}
             >
@@ -349,9 +371,9 @@ export default function Filters({ data, onFilter }) {
                   xl: '40px',
                 }}
                 fontSize={{
-                  sm: 'sm',
-                  md: 'md',
-                  lg: 'md',
+                  sm: '3xs',
+                  md: 'xs',
+                  lg: 'xs',
                   xl: 'lg',
                 }}
               >
@@ -359,7 +381,7 @@ export default function Filters({ data, onFilter }) {
               </MenuButton>
               <MenuList
                 minWidth={{
-                  sm: '225px',
+                  sm: '216px',
                   md: '315px',
                   xl: '450px',
                 }}
@@ -370,11 +392,19 @@ export default function Filters({ data, onFilter }) {
                   onChange={(e) => handleFilterChange('counties', e)}
                   value={selectedFilters.counties}
                 >
-                  <MenuItemOption value='Alla' key='Alla'>
+                  <MenuItemOption
+                    value='Alla'
+                    key='Alla'
+                    fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                  >
                     Alla
                   </MenuItemOption>
                   {counties.map((county) => (
-                    <MenuItemOption key={county} value={county}>
+                    <MenuItemOption
+                      key={county}
+                      value={county}
+                      fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                    >
                       {county}
                     </MenuItemOption>
                   ))}
@@ -393,9 +423,9 @@ export default function Filters({ data, onFilter }) {
                 <FormLabel
                   htmlFor='months'
                   fontSize={{
-                    sm: 'sm',
-                    md: 'md',
-                    lg: 'md',
+                    sm: '2xs',
+                    md: 'sm',
+                    lg: 'sm',
                     xl: 'lg',
                   }}
                 >
@@ -419,17 +449,20 @@ export default function Filters({ data, onFilter }) {
                       xl: '40px',
                     }}
                     fontSize={{
-                      sm: 'sm',
-                      md: 'md',
-                      lg: 'md',
+                      sm: '3xs',
+                      md: 'xs',
+                      lg: 'xs',
                       xl: 'lg',
+                    }}
+                    padding={{
+                      sm: '10%',
                     }}
                   >
                     {monthMenuButtonText()}
                   </MenuButton>
                   <MenuList
                     minWidth={{
-                      sm: '101.25px',
+                      sm: '97.2px',
                       md: '141.75px',
                       xl: '202.5px',
                     }}
@@ -439,11 +472,19 @@ export default function Filters({ data, onFilter }) {
                       onChange={(e) => handleFilterChange('months', e)}
                       value={selectedFilters.months}
                     >
-                      <MenuItemOption value='Alla' key='Alla'>
+                      <MenuItemOption
+                        value='Alla'
+                        key='Alla'
+                        fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                      >
                         Alla
                       </MenuItemOption>
                       {getMonthNames().map((month) => (
-                        <MenuItemOption key={month} value={month}>
+                        <MenuItemOption
+                          key={month}
+                          value={month}
+                          fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                        >
                           {month}
                         </MenuItemOption>
                       ))}
@@ -457,9 +498,9 @@ export default function Filters({ data, onFilter }) {
                 <FormLabel
                   htmlFor='years'
                   fontSize={{
-                    sm: 'sm',
-                    md: 'md',
-                    lg: 'md',
+                    sm: '2xs',
+                    md: 'sm',
+                    lg: 'sm',
                     xl: 'lg',
                   }}
                 >
@@ -482,17 +523,20 @@ export default function Filters({ data, onFilter }) {
                       xl: '40px',
                     }}
                     fontSize={{
-                      sm: 'sm',
-                      md: 'md',
-                      lg: 'md',
+                      sm: '3xs',
+                      md: 'xs',
+                      lg: 'xs',
                       xl: 'lg',
+                    }}
+                    padding={{
+                      sm: '10%',
                     }}
                   >
                     {selectedFilters.year}
                   </MenuButton>
                   <MenuList
                     minWidth={{
-                      sm: '101.25px',
+                      sm: '97.2px',
                       md: '141.75px',
                       xl: '202.5px',
                     }}
@@ -503,7 +547,11 @@ export default function Filters({ data, onFilter }) {
                       value={selectedFilters.year}
                     >
                       {years.map((year) => (
-                        <MenuItemOption key={year} value={year}>
+                        <MenuItemOption
+                          key={year}
+                          value={year}
+                          fontSize={{ sm: '2xs', md: 'sm', lg: 'md', xl: 'lg' }}
+                        >
                           {year}
                         </MenuItemOption>
                       ))}
