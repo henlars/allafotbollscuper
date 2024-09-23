@@ -7,8 +7,8 @@ function Card({ month, name, club, date, categoriesSummary, link }) {
     <ChakraNextLink href={link}>
       <Box
         backgroundColor={'white'}
-        maxW='350px'
-        w='350px'
+        maxW='330px'
+        w='330px'
         borderRadius={'5%'}
         overflow='hidden'
       >

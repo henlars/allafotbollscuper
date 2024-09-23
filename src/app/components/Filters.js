@@ -152,13 +152,13 @@ export default function Filters({ data, onFilter }) {
       <Flex
         borderRadius='5%'
         height={{
-          sm: '180px',
+          sm: '240px',
           md: '350px',
           lg: '350px',
           xl: '500px',
         }}
         w={{
-          sm: '180px',
+          sm: '240px',
           md: '350px',
           lg: '350px',
           xl: '500px',
@@ -176,7 +176,7 @@ export default function Filters({ data, onFilter }) {
           <Text
             color={'black'}
             fontSize={{
-              sm: 'xs',
+              sm: 'lg',
               md: 'x-large',
               lg: 'x-large',
               xl: 'xx-large',
@@ -194,7 +194,7 @@ export default function Filters({ data, onFilter }) {
               <FormLabel
                 htmlFor='age'
                 fontSize={{
-                  sm: '2xs',
+                  sm: 'sm',
                   md: 'md',
                   lg: 'md',
                   xl: 'lg',
@@ -215,13 +215,13 @@ export default function Filters({ data, onFilter }) {
                   fontWeight={'normal'}
                   width={'100%'}
                   h={{
-                    sm: '15px',
+                    sm: '20px',
                     md: '30px',
                     lg: '30px',
                     xl: '40px',
                   }}
                   fontSize={{
-                    sm: '2xs',
+                    sm: 'sm',
                     md: 'md',
                     lg: 'md',
                     xl: 'lg',
@@ -229,7 +229,14 @@ export default function Filters({ data, onFilter }) {
                 >
                   {selectedFilters.age}
                 </MenuButton>
-                <MenuList minWidth={'202.5px'} zIndex={20}>
+                <MenuList
+                  minWidth={{
+                    sm: '101.25px',
+                    md: '141.75px',
+                    xl: '202.5px',
+                  }}
+                  zIndex={20}
+                >
                   <MenuOptionGroup
                     type='radio'
                     onChange={(e) => handleFilterChange('age', e)}
@@ -251,7 +258,7 @@ export default function Filters({ data, onFilter }) {
               <FormLabel
                 htmlFor='gender'
                 fontSize={{
-                  sm: '2xs',
+                  sm: 'sm',
                   md: 'md',
                   lg: 'md',
                   xl: 'lg',
@@ -271,13 +278,13 @@ export default function Filters({ data, onFilter }) {
                   fontWeight={'normal'}
                   width={'100%'}
                   h={{
-                    sm: '15px',
+                    sm: '20px',
                     md: '30px',
                     lg: '30px',
                     xl: '40px',
                   }}
                   fontSize={{
-                    sm: '2xs',
+                    sm: 'sm',
                     md: 'md',
                     lg: 'md',
                     xl: 'lg',
@@ -285,7 +292,14 @@ export default function Filters({ data, onFilter }) {
                 >
                   {selectedFilters.gender}
                 </MenuButton>
-                <MenuList minWidth={'202.5px'} zIndex={20}>
+                <MenuList
+                  minWidth={{
+                    sm: '101.25px',
+                    md: '141.75px',
+                    xl: '202.5px',
+                  }}
+                  zIndex={20}
+                >
                   <MenuOptionGroup
                     type='radio'
                     onChange={(e) => handleFilterChange('gender', e)}
@@ -309,7 +323,7 @@ export default function Filters({ data, onFilter }) {
             <FormLabel
               htmlFor='counties'
               fontSize={{
-                sm: '2xs',
+                sm: 'sm',
                 md: 'md',
                 lg: 'md',
                 xl: 'lg',
@@ -329,13 +343,13 @@ export default function Filters({ data, onFilter }) {
                 fontWeight={'normal'}
                 width={'100%'}
                 h={{
-                  sm: '15px',
+                  sm: '20px',
                   md: '30px',
                   lg: '30px',
                   xl: '40px',
                 }}
                 fontSize={{
-                  sm: '2xs',
+                  sm: 'sm',
                   md: 'md',
                   lg: 'md',
                   xl: 'lg',
@@ -343,7 +357,14 @@ export default function Filters({ data, onFilter }) {
               >
                 {countyMenuButtonText()}
               </MenuButton>
-              <MenuList minWidth={'450px'} zIndex={20}>
+              <MenuList
+                minWidth={{
+                  sm: '225px',
+                  md: '315px',
+                  xl: '450px',
+                }}
+                zIndex={20}
+              >
                 <MenuOptionGroup
                   type='checkbox'
                   onChange={(e) => handleFilterChange('counties', e)}
@@ -372,7 +393,7 @@ export default function Filters({ data, onFilter }) {
                 <FormLabel
                   htmlFor='months'
                   fontSize={{
-                    sm: '2xs',
+                    sm: 'sm',
                     md: 'md',
                     lg: 'md',
                     xl: 'lg',
@@ -392,13 +413,13 @@ export default function Filters({ data, onFilter }) {
                     fontWeight={'normal'}
                     width={'100%'}
                     h={{
-                      sm: '15px',
+                      sm: '20px',
                       md: '30px',
                       lg: '30px',
                       xl: '40px',
                     }}
                     fontSize={{
-                      sm: '2xs',
+                      sm: 'sm',
                       md: 'md',
                       lg: 'md',
                       xl: 'lg',
@@ -406,7 +427,13 @@ export default function Filters({ data, onFilter }) {
                   >
                     {monthMenuButtonText()}
                   </MenuButton>
-                  <MenuList minWidth={'202.5px'}>
+                  <MenuList
+                    minWidth={{
+                      sm: '101.25px',
+                      md: '141.75px',
+                      xl: '202.5px',
+                    }}
+                  >
                     <MenuOptionGroup
                       type='checkbox'
                       onChange={(e) => handleFilterChange('months', e)}
@@ -430,7 +457,7 @@ export default function Filters({ data, onFilter }) {
                 <FormLabel
                   htmlFor='years'
                   fontSize={{
-                    sm: '2xs',
+                    sm: 'sm',
                     md: 'md',
                     lg: 'md',
                     xl: 'lg',
@@ -449,13 +476,13 @@ export default function Filters({ data, onFilter }) {
                     color='black'
                     fontWeight={'normal'}
                     h={{
-                      sm: '15px',
+                      sm: '20px',
                       md: '30px',
                       lg: '30px',
                       xl: '40px',
                     }}
                     fontSize={{
-                      sm: '2xs',
+                      sm: 'sm',
                       md: 'md',
                       lg: 'md',
                       xl: 'lg',
@@ -463,7 +490,13 @@ export default function Filters({ data, onFilter }) {
                   >
                     {selectedFilters.year}
                   </MenuButton>
-                  <MenuList minWidth={'202.5px'}>
+                  <MenuList
+                    minWidth={{
+                      sm: '101.25px',
+                      md: '141.75px',
+                      xl: '202.5px',
+                    }}
+                  >
                     <MenuOptionGroup
                       type='radio'
                       onChange={(e) => handleFilterChange('year', e)}
@@ -483,7 +516,7 @@ export default function Filters({ data, onFilter }) {
           <Flex
             flexDirection={'row'}
             placeContent='space-evenly'
-            mt={{ sm: '2%', lg: '5%' }}
+            mt={{ sm: '2%', md: '5%' }}
             w='80%'
           >
             <Button
@@ -501,9 +534,25 @@ export default function Filters({ data, onFilter }) {
                 });
                 onFilter(data);
               }}
-              padding={'8px'}
-              width={'75px'}
+              width={{
+                sm: '45px',
+                md: '55px',
+                lg: '60px',
+                xl: '100px',
+              }}
               _hover={{ backgroundColor: 'gray.800' }}
+              fontSize={{
+                sm: '2xs',
+                md: 'xs',
+                lg: 'sm',
+                xl: 'lg',
+              }}
+              height={{
+                sm: '25px',
+                md: '40px',
+                lg: '40px',
+                xl: '50px',
+              }}
             >
               Rensa{' '}
             </Button>

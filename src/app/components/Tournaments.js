@@ -27,7 +27,6 @@ export const Tournaments = ({ tournaments }) => {
   const [lastPageNumberOfTournaments, setLastPageNumberOfTournaments] =
     useState();
   let listViewCount = 3;
-  let gridColumns = 'repeat(4, 1fr)';
 
   const {
     pages,
@@ -72,6 +71,7 @@ export const Tournaments = ({ tournaments }) => {
         position='relative'
         h={{ sm: '40px', '2xl': '60px', '3xl': '80px' }}
         mt={10}
+        visibility={{ sm: 'hidden', md: 'inherit' }}
       >
         <Flex
           position={'absolute'}
@@ -192,8 +192,11 @@ export const Tournaments = ({ tournaments }) => {
             '3xl': '40px',
           }}
           mt={'40px'}
-          templateColumns={gridViewSelected ? gridColumns : 'repeat(1, 1fr)'}
-          templateRows={gridViewSelected ? 'repeat(2, 1fr)' : 'repeat(6, 1fr)'}
+          templateColumns={{
+            md: gridViewSelected ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)',
+            lg: gridViewSelected ? 'repeat(3, 1fr)' : 'repeat(1, 1fr)',
+            xl: gridViewSelected ? 'repeat(4, 1fr)' : 'repeat(1, 1fr)',
+          }}
           p={0}
           justifyItems={'center'}
           w={!gridViewSelected && '100%'}

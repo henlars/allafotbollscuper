@@ -19,7 +19,7 @@ export default function Content({ data }) {
   return (
     <Box maxW={'1440px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
       {/*  <Create></Create> <Batch></Batch> */}
-      <Box pt={{ sm: '60%', lg: '40%' }} position={'relative'}>
+      <Box pt={{ sm: '80%', md: '60%', lg: '40%' }} position={'relative'}>
         <Image
           src={'/winner.webp'} // Replace with your image path
           alt='Image description'
