@@ -46,7 +46,9 @@ function ListCard({ month, name, club, date, categoriesSummary, link }) {
             mt={'5px'}
             fontSize={{ sm: 'xs', md: 'sm', lg: 'md', xl: 'lg' }}
           >
-            {categoriesSummary}
+            {categoriesSummary.length < 25
+              ? categoriesSummary
+              : categoriesSummary.substring(0, 25) + '...'}
           </Text>
         </Box>
         <Box width={'25%'} textAlign={'center'} alignContent={'center'}>

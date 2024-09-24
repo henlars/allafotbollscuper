@@ -29,7 +29,11 @@ function Card({ month, name, club, date, categoriesSummary, link }) {
           <Flex fontSize={'small'} placeContent={'space-between'}>
             <Box>
               <Text fontWeight={'bold'}>Åldersklass:</Text>
-              <Text mt={'5px'}>{categoriesSummary}</Text>
+              <Text mt={'5px'}>
+                {categoriesSummary.length < 25
+                  ? categoriesSummary
+                  : categoriesSummary.substring(0, 25) + '...'}
+              </Text>
             </Box>
             <Box>
               <Text fontWeight={'bold'}>Arrangör:</Text>
