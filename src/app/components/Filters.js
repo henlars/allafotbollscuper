@@ -26,8 +26,8 @@ export default function Filters({ data, onFilter }) {
     counties: [],
     year: '2024',
   });
-  const counties = ['Västra götalands län', 'Stockholm'];
-  const genders = ['Flick', 'Pojk', 'Dam', 'Herr'];
+  const counties = ['Västra götalands län', 'Stockholm', 'Göteborg'];
+  const genders = ['Flick', 'Pojk', 'Dam', 'Herr', 'Damjunior', 'Herrjunior'];
   const years = ['2024', '2025'];
   function getBirthYears() {
     const birthYears = [];
@@ -77,6 +77,10 @@ export default function Filters({ data, onFilter }) {
         modifiedGender = 'Herr';
       } else if (filterValue == 'Dam') {
         modifiedGender = 'Dam';
+      } else if (filterValue == 'Damjunior') {
+        modifiedGender = 'DJ';
+      } else if (filterValue == 'Herrjunior') {
+        modifiedGender = 'HJ';
       } else {
         modifiedGender = 'Alla';
       }
