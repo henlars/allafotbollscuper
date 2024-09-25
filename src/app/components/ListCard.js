@@ -22,7 +22,10 @@ function ListCard({
     '/8_year_girl.webp',
   ];
   return (
-    <ChakraNextLink href={link}>
+    <ChakraNextLink
+      newTab={true}
+      href={link.includes('@') ? 'mailto:' + link : link}
+    >
       <Flex
         backgroundColor={'white'}
         width={'90%'}

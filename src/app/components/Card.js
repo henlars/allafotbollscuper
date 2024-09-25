@@ -14,7 +14,10 @@ function Card({ county, name, club, date, categoriesSummary, link, index }) {
     '/8_year_girl.webp',
   ];
   return (
-    <ChakraNextLink href={link}>
+    <ChakraNextLink
+      newTab={true}
+      href={link.includes('@') ? 'mailto:' + link : link}
+    >
       <Box
         backgroundColor={'white'}
         maxW='330px'

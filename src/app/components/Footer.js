@@ -41,7 +41,7 @@ const Footer = () => (
           </Flex>{' '}
         </ChakraNextLink>
 
-        <ChakraNextLink href='https://github.com/henlars'>
+        <ChakraNextLink href='https://github.com/henlars' newTab>
           <Flex
             justifyContent={'center'}
             fontSize={{ sm: '12px', md: '18px', lg: '24px' }}
@@ -49,7 +49,10 @@ const Footer = () => (
             <FontAwesomeIcon icon={faGithub} color='white' />
           </Flex>
         </ChakraNextLink>
-        <ChakraNextLink href='https://www.linkedin.com/in/henrik-larsson-46470a192/'>
+        <ChakraNextLink
+          href='https://www.linkedin.com/in/henrik-larsson-46470a192/'
+          newTab
+        >
           <Flex
             justifyContent={'center'}
             fontSize={{ sm: '12px', md: '18px', lg: '24px' }}
