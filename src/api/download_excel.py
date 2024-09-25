@@ -112,6 +112,8 @@ def scrape_website(url):
             row_data["year"] = "2024"
             row_data["categories"] = add_zero_before_one_digit(row_data["categoriesSummary"].split(','))
             row_data["month"] = extract_month(row_data["date"])
+            if row_data["link"] and "http" not in row_data["link"]:
+                row_data["link"] = "https://" + row_data["link"]
 
             row_data["date"] = strip_date(row_data["date"])
             data.append(row_data)
