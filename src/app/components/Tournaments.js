@@ -208,7 +208,7 @@ export const Tournaments = ({ tournaments }) => {
                   currentPage * pageSize
                 )
                 ?.map((tournament, index) => (
-                  <Card {...tournament} key={index} />
+                  <Card {...tournament} key={index} index={index} />
                 ))
             : tournaments
                 .slice(
@@ -216,7 +216,7 @@ export const Tournaments = ({ tournaments }) => {
                   currentPage * pageSize
                 )
                 ?.map((tournament, index) => (
-                  <ListCard {...tournament} key={index} />
+                  <ListCard {...tournament} key={index} index={index} />
                 ))}
         </Grid>
         <Pagination

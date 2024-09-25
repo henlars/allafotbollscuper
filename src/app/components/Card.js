@@ -2,7 +2,17 @@ import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import ChakraNextLink from './Link';
 import Image from 'next/image';
 
-function Card({ month, name, club, date, categoriesSummary, link }) {
+function Card({ county, name, club, date, categoriesSummary, link, index }) {
+  const images = [
+    '/8_year_boy.webp',
+    '/17_year_girl.webp',
+    '/11_year_boy.webp',
+    '/14_year_girl.webp',
+    '/14_year_boy.webp',
+    '/11_year_girl.webp',
+    '/17_year_boy.webp',
+    '/8_year_girl.webp',
+  ];
   return (
     <ChakraNextLink href={link}>
       <Box
@@ -13,7 +23,7 @@ function Card({ month, name, club, date, categoriesSummary, link }) {
         overflow='hidden'
       >
         <Flex position='relative' w={'100%'} p='33%'>
-          <Image fill src={'/kids_playing.webp'} alt={name} sizes={'300px'} />
+          <Image fill src={images[index]} alt={name} sizes={'300px'} />
         </Flex>
         <Box p={'15px'}>
           <Flex
@@ -21,7 +31,7 @@ function Card({ month, name, club, date, categoriesSummary, link }) {
             width={'100%'}
             placeContent={'space-between'}
           >
-            <Text>Västra götalands län</Text> <Text>{date}</Text>
+            <Text>{county}</Text> <Text>{date}</Text>
           </Flex>
           <Heading fontSize={'large'} mt={'5px'} mb={'15px'}>
             {name.length < 30 ? name : name.substring(0, 25) + '...'}

@@ -21,7 +21,7 @@ export default function Content({ data }) {
       {/*  <Create></Create> <Batch></Batch> */}
       <Box pt={{ sm: '80%', md: '60%', lg: '40%' }} position={'relative'}>
         <Image
-          src={'/winner.webp'} // Replace with your image path
+          src={'/celebrating.webp'} // Replace with your image path
           alt='Image description'
           fill
           priority
@@ -48,7 +48,7 @@ export default function Content({ data }) {
           position={'absolute'}
           width={'100%'}
           top={0}
-          backgroundColor={'rgba(0, 0, 0, 0.8)'}
+          backgroundColor={'rgba(0, 0, 0, 0.6)'}
         >
           {data && <Filters data={data} onFilter={handleFilter}></Filters>}
         </Center>
