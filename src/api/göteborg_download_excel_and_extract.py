@@ -31,7 +31,8 @@ def scrape_website(url):
         for index, month in enumerate(swedish_months):
           if month in new_date.lower():
            
-            new_date = new_date.lower().replace(" ", "").replace(month, "/" + str(index +1))
+            new_date = new_date.lower().replace(month, "/" + str(index +1)).replace('-/', '/')
+        new_date = new_date.replace(" ", "").replace('+', ' & ')
         new_date = new_date.replace("2024", "").strip()
         return new_date
 
@@ -114,7 +115,8 @@ def scrape_website(url):
             row_data["month"] = extract_month(row_data["date"])
             if row_data["link"] and "http" not in row_data["link"]:
                 row_data["link"] = "https://" + row_data["link"]
-
+            if not row_data['link']
+              row_data['link'] = ""
             row_data["date"] = strip_date(row_data["date"])
             data.append(row_data)
               
