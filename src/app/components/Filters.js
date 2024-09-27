@@ -136,10 +136,12 @@ export default function Filters({ data, onFilter }) {
         (selectedFilters.months.includes(item.month) ||
           selectedFilters.months.length == 0) &&
         (selectedFilters.gender === 'Alla' ||
+          item.categories.includes('*') ||
           item.categories.some((category) =>
             category.includes(selectedFilters.genderCode)
           )) &&
         (selectedFilters.age === 'Alla' ||
+          item.categories.includes('*') ||
           item.categories.some((category) =>
             category.includes(selectedFilters.ageCode)
           )) &&
