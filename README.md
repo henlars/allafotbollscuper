@@ -2,7 +2,11 @@
 
 A comprehensive web application that provides a centralized platform for discovering youth soccer tournaments across Sweden. Data is retrieved from the Svenska Fotbollförbundet website to offer a user-friendly interface for searching, filtering, and finding relevant tournaments.
 
-**Please note that features are not yet ready.**
+## Visit
+[https://allafotbollscuper.se](https://allafotbollscuper.se)
+
+
+**Please note that some features are not yet ready.**
 
 
 ## Why
