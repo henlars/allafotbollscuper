@@ -18,9 +18,20 @@ def extract_month(date):
       extracted_month= ""
       for index, month in enumerate(swedish_months):
         if month in date:
-           
-            extracted_month = swedish_long_months[index]
-            break
+            if (month != "jan" and extracted_month != "januari"):
+              extracted_month = swedish_long_months[index]
+              break
+            else:
+              if (month == 'dec'):
+                extracted_month = swedish_long_months[index]
+              else:
+                extracted_month = swedish_long_months[0]  
+
+
+                 
+              
+
+
       return extracted_month.capitalize()  
 def modify_pattern_with_dash_and_one_gender(input_string):
     pattern = r"(F|P)(\d+)-(\d+)"
