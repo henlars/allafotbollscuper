@@ -26,8 +26,11 @@ def extract_month(date):
                 extracted_month = swedish_long_months[index]
               else:
                 extracted_month = swedish_long_months[0]  
-
-
+        else:
+          match = re.search(r'/(\d)', date)
+          if match:
+            extracted_month = swedish_long_months[int(match.group(1)) - 1]
+      
                  
               
 
