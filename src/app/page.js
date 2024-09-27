@@ -6,7 +6,18 @@ Amplify.configure(outputs);
 export default async function Home() {
   const client = generateClient();
 
-  const { data } = await client.models.Tournament.list();
+  let nextToken = null;
+  let allData = [];
 
-  return <Content data={data}></Content>;
+  do {
+    const { data, nextToken: newNextToken } =
+      await client.models.Tournament.list({
+        nextToken,
+      });
+
+    allData = allData.concat(data);
+    nextToken = newNextToken;
+  } while (nextToken);
+
+  return <Content data={allData}></Content>;
 }
