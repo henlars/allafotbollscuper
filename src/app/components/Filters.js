@@ -26,7 +26,13 @@ export default function Filters({ data, onFilter }) {
     counties: [],
     year: '2024',
   });
-  const counties = ['Västra götalands län', 'Stockholm', 'Göteborg', 'Skåne'];
+  const counties = [
+    'Västra götalands län',
+    'Stockholm',
+    'Göteborg',
+    'Skåne',
+    'Småland',
+  ];
   const genders = ['Flick', 'Pojk', 'Dam', 'Herr', 'Damjunior', 'Herrjunior'];
   const years = ['2024', '2025'];
   function getBirthYears() {
