@@ -215,7 +215,7 @@ export default function Filters({ data, onFilter }) {
                 {'Åldersgrupp'}
               </FormLabel>
 
-              <Menu closeOnSelect={false} flip={false} id='age'>
+              <Menu closeOnSelect={true} flip={false} id='age'>
                 <MenuButton
                   as={Button}
                   rightIcon={
@@ -289,7 +289,7 @@ export default function Filters({ data, onFilter }) {
               >
                 Kategori
               </FormLabel>
-              <Menu closeOnSelect={false} flip={false} id='gender'>
+              <Menu closeOnSelect={true} flip={false} id='gender'>
                 <MenuButton
                   as={Button}
                   rightIcon={
@@ -365,7 +365,7 @@ export default function Filters({ data, onFilter }) {
             >
               Län
             </FormLabel>
-            <Menu closeOnSelect={false} flip={false} id='counties'>
+            <Menu closeOnSelect={true} flip={false} id='counties'>
               <MenuButton
                 as={Button}
                 rightIcon={
@@ -443,7 +443,7 @@ export default function Filters({ data, onFilter }) {
                 >
                   Månad
                 </FormLabel>
-                <Menu closeOnSelect={false} flip={false} id='months'>
+                <Menu closeOnSelect={true} flip={false} id='months'>
                   <MenuButton
                     as={Button}
                     rightIcon={
@@ -518,7 +518,7 @@ export default function Filters({ data, onFilter }) {
                 >
                   År
                 </FormLabel>
-                <Menu closeOnSelect={false} flip={false} id='years'>
+                <Menu closeOnSelect={true} flip={false} id='years'>
                   <MenuButton
                     as={Button}
                     rightIcon={
