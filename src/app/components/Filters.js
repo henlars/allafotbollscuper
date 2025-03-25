@@ -24,7 +24,7 @@ export default function Filters({ data, onFilter }) {
     age: 'Alla',
     ageCode: '',
     counties: [],
-    year: '2024',
+    year: '2025',
   });
   const counties = [
     'Västra götalands län',
