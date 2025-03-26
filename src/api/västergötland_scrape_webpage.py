@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import json
 import re
 def modify_pattern_with_dash_and_one_gender(input_string):
@@ -131,7 +131,7 @@ def extract_cup_data(element):
            
     
     for child in element.children:
-        if child.text in months:
+        if isinstance(child, Tag) and child.text in months:
             cup = child.find_next_sibling()
             current_month = child.text.strip()
             cups = cup.find_all('li')
@@ -150,7 +150,7 @@ def extract_cup_data(element):
                       "categories": process_tournament_data(tournament_data),
                       "categoriesSummary": tournament_data[3].strip() + (" -" + tournament_data[4].strip() if len(tournament_data) > 5 else ""),
                       "link": link['href'] if link else "",
-                      "year": "2024",
+                      "year": "2025",
                       "county": "Västra götalands län"
                   })
                      
@@ -163,12 +163,12 @@ def scrape_tournament_data(url, text_to_find):
     try:
         # Fetch the webpage content
         """ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
-        response.raise_for_status()  # Raise exception for HTTP errors """
-        """ save = BeautifulSoup(response.text, 'html.parser')
+        response.raise_for_status()  # Raise exception for HTTP errors
+        save = BeautifulSoup(response.text, 'html.parser')
 
-        with open("index.html", "w", encoding="utf-8") as f:
+        with open("västergötland.html", "w", encoding="utf-8") as f:
           f.write(str(save)) """
-        with open("index.html", "r", encoding="utf-8") as f:
+        with open("västergötland2025.html", "r", encoding="utf-8") as f:
           content = f.read()
         # Parse the HTML content
         soup = BeautifulSoup(content, 'lxml')
@@ -200,13 +200,13 @@ def scrape_tournament_data(url, text_to_find):
 
 if __name__ == "__main__":
     url = "https://vastergotland.svenskfotboll.se/tavling/cuptillstand/"
-    text_to_find = "Cuptillstånd fotboll 2024"
+    text_to_find = "Cuptillstånd fotboll 2025"
 
     data = scrape_tournament_data(url, text_to_find)
     
     if data:
         # Save the data as JSON
-        with open("cuper2024.json", 'w', encoding='utf-8') as f:
+        with open("västergötland2025.json", 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
     else:
         print("Scraping failed.")

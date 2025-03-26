@@ -43,7 +43,7 @@ def convert_date_range(date_range):
         else:
             return f"{remove_leading_zeros(start_day)}/{remove_leading_zeros(start_month)}-{remove_leading_zeros(end_day)}/{remove_leading_zeros(end_month)}"
       else:
-         return start_date.replace(' 2024', '')
+         return start_date.replace(' 2025', '')
     else:
       start_day = date_range.split("-")[2]
       start_month = date_range.split("-")[1]
@@ -64,7 +64,7 @@ def remove_leading_zeros(number):
     return number
 
 def get_swedish_month(date_string):
-    if (date_string.replace(' 2024', "").lower() in swedish_long_months):
+    if (date_string.replace(' 2025', "").lower() in swedish_long_months):
        return date_string
     elif not (date_string.find('Vår') == -1):
        return "Mars" 
@@ -105,13 +105,13 @@ def scrape_tournament_data(url):
     
     try:
         # Fetch the webpage content
-        """response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         response.raise_for_status()  # Raise exception for HTTP errors 
         save = BeautifulSoup(response.text, 'html.parser')
 
-        with open("skåne_index.html", "w", encoding="utf-8") as f:
-          f.write(str(save))"""
-        with open("skåne_index.html", "r", encoding="utf-8") as f:
+        with open("skåne2025.html", "w", encoding="utf-8") as f:
+          f.write(str(save))
+        with open("skåne2025.html", "r", encoding="utf-8") as f:
           content = f.read()
         # Parse the HTML content
         soup = BeautifulSoup(content, 'lxml')
@@ -148,7 +148,7 @@ def scrape_tournament_data(url):
                            "categories": result,
                            "categoriesSummary": special_spans[3],
                            "link": cup.find('a')['href'] if cup.find('a') else "",
-                           "year": "2024",
+                           "year": "2025",
                            "county": "Skåne"
                        })
              
@@ -175,7 +175,7 @@ def scrape_tournament_data(url):
                           "categories": result,
                           "categoriesSummary": spans[3].text.replace('Kategorier: ', ''),
                           "link": cup.find('a')['href'] if cup.find('a') else "",
-                          "year": "2024",
+                          "year": "2025",
                           "county": "Skåne"
                       })
           """ print(data) """
@@ -186,13 +186,13 @@ def scrape_tournament_data(url):
 
 
 if __name__ == "__main__":
-    url = "https://www.skaneboll.se/tavling/cuper/tavlingar-med-tillstand-fotboll-20212/"
+    url = "https://www.skaneboll.se/tavling/cuper/tavlingar-med-tillstand-fotboll-2021/"
 
     data = scrape_tournament_data(url)
     
     if data:
         # Save the data as JSON
-        with open("skåne.json", 'w', encoding='utf-8') as f:
+        with open("skåne2025.json", 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
     else:
         print("Scraping failed.")

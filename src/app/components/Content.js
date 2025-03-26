@@ -7,9 +7,8 @@ import { Tournaments } from './Tournaments';
 import { useState } from 'react';
 import ChakraNextLink from './Link';
 
-/* import Batch from './Batch';
-import Create from './Create';
- */
+//import Batch from './Batch';
+
 export default function Content({ data }) {
   const [filteredData, setFilteredData] = useState(data);
 
@@ -18,7 +17,7 @@ export default function Content({ data }) {
   };
   return (
     <Box maxW={'1440px'} margin={'auto'} backgroundColor={'#F1F1F1'}>
-      {/*  <Create></Create> <Batch></Batch> */}
+      {/* <Batch></Batch> */}
       <Box pt={{ sm: '80%', md: '60%', lg: '40%' }} position={'relative'}>
         <Image
           src={'/celebrating.webp'} // Replace with your image path

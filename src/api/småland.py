@@ -156,13 +156,13 @@ def scrape_tournament_data(url):
     
     try:
         # Fetch the webpage content
-        """ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         response.raise_for_status()  # Raise exception for HTTP errors 
         save = BeautifulSoup(response.text, 'html.parser')
 
-        with open("småland_index.html", "w", encoding="utf-8") as f:
-          f.write(str(save)) """
-        with open("småland_index.html", "r", encoding="utf-8") as f:
+        with open("småland2025.html", "w", encoding="utf-8") as f:
+          f.write(str(save))
+        with open("småland2025.html", "r", encoding="utf-8") as f:
           content = f.read()
         # Parse the HTML content
         soup = BeautifulSoup(content, 'lxml')
@@ -210,7 +210,12 @@ def scrape_tournament_data(url):
           
             month = ""
             if  not parts[2].text.find("/") == -1:
-              english_month = int(parts[2].text.replace('Datum: ', '').split('/')[1].strip()) -1 # Extract month
+              if "och" in parts[2].text:
+                index = parts[2].text.find("och")
+                
+                english_month = int(parts[2].text[:index].strip().replace('Datum: ', '').split('/')[1].strip()) -1 # Extract month
+              else:
+                english_month = int(parts[2].text.replace('Datum: ', '').split('/')[1].strip()) -1 # Extract month
               month = swedish_long_months[english_month].capitalize()
             else:
               sub_parts = parts[2].text.split(' ')
@@ -224,7 +229,7 @@ def scrape_tournament_data(url):
                           "club": parts[1].text.replace('Arrangör: ', '').replace("\xa0", ""),
                           "categoriesSummary": parts[3].text.replace('Ålder: ', '').replace("\xa0", ""),
                           "link": cup.find('a')['href'] if cup.find('a') else "",
-                          "year": "2024",
+                          "year": "2025",
                           "county": "Småland",
                           "date": strip_date(parts[2].text.replace('Datum: ', '').replace('2023', "").replace('2024', "").replace('2025', "").replace("\xa0", "")),
                           "categories": result,
@@ -245,7 +250,7 @@ if __name__ == "__main__":
     
     if data:
         # Save the data as JSON
-        with open("småland.json", 'w', encoding='utf-8') as f:
+        with open("småland2025.json", 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
     else:
         print("Scraping failed.")

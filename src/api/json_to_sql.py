@@ -1,56 +1,40 @@
 import pyodbc
 import json
 from dotenv import load_dotenv
-
-load_dotenv("../../.env.local")
 import os
 
-# Ersätt med dina autentiseringsuppgifter
+load_dotenv("../../.env.local")
+
+# Database connection details
 server = 'allafotbollscuper.database.windows.net'
 database = 'cuper'
 username = 'henrik'
 password = os.environ.get("DATABASE_PASSWORD")
 driver = '{ODBC Driver 18 for SQL Server}'
-
-# Anslutningssträng
 conn_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
 
+def insert_cup_data(cursor, data):
+    sql = "INSERT INTO cups (Name, Club, CategoriesSummary, Date,  Link, County, Year, Categories, Month    ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    cursor.execute(sql, (data["name"], data["club"], data["categoriesSummary"], data["date"], data["link"], data["county"], data["year"], ", ".join(data["categories"]), data["month"]))
+    conn.commit()
+    print(f"Inserted cup: {data['name']}")
+
 try:
-    # Anslut till databasen
+    # Connect to the database
     conn = pyodbc.connect(conn_string)
     cursor = conn.cursor()
 
-   # Exempel på JSON-data
-    json_data = {
-        
-       "name": "Romelanda Cup",
-        "club": "Romelanda UF",
-        "categoriesSummary": "F9,F13,P9,P13",
-        "date": "23-24/3&6-7/4",
-        "pitchSize": "5 mot 5, Liten 9 mot 9",
-        "link": "https://www.romelandacup.se",
-        "county": "Göteborg",
-        "year": "2024",
-        "categories": [
-            "F09",
-            "F13",
-            "P09",
-            "P13"
-        ],
-        "month": "Mars"
-    }
-    
+    # Load JSON data
+    with open('stockholm2025.json', 'r') as f:
+        json_data = json.load(f)
 
-    # SQL-fråga för INSERT
-    sql = "INSERT INTO cuper (name, club, categoriesSummary, date,  link, county, year, categories, month    ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    # Insert each cup record
+    for record in json_data:
+        insert_cup_data(cursor, record)
 
-    # Utför INSERT
-    cursor.execute(sql, (json_data["name"], json_data["club"], json_data["categoriesSummary"],json_data["date"],json_data["link"],json_data["county"],json_data["year"],", ".join(json_data["categories"]),json_data["month"]))
-    conn.commit()
-    print("Data inserted successfully!")
+    print("All cups inserted successfully!")
 except pyodbc.Error as ex:
-    print('Error:', ex)
-
+    print(f"Error: {ex}")
 finally:
     if conn:
         conn.close()

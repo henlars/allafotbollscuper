@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
-/* import initialData from '../../api/cuper2024.json';
- */
+/* import initialData from '../../api/västergötland2025.json'; */
+
 const tableName = 'Tournament-7o6tvbawmba43jgqg5z2xvmysq-NONE';
 
 const ddbClient = new AWS.DynamoDB.DocumentClient({
@@ -14,8 +14,8 @@ export default function Batch() {
   const batchSize = 25;
 
   const batchWriteRequests = [];
-  /* let data = initialData; */
-  let data = [];
+  /*   let data = initialData;
+   */ let data = [];
   while (data.length > 0) {
     const currentBatch = data.slice(0, batchSize);
     const batchWriteRequest = {

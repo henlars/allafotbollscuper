@@ -1,3 +1,4 @@
+import datetime
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -27,17 +28,19 @@ def scrape_website(url):
             break
       return extracted_month.capitalize()
     def strip_date(date):
+        
         new_date = date
+        
         for index, month in enumerate(swedish_months):
           if month in new_date.lower():
            
             new_date = new_date.lower().replace(month, "/" + str(index +1)).replace('-/', '/')
         new_date = new_date.replace(" ", "").replace('+', ' & ')
-        new_date = new_date.replace("2024", "").strip()
+        new_date = new_date.replace("2025", "").strip()
         return new_date
 
     try:
-        """  # Fetch the website content
+         # Fetch the website content
         response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         response.raise_for_status()  # Raise exception for HTTP errors
 
@@ -45,7 +48,7 @@ def scrape_website(url):
         soup = BeautifulSoup(response.text, 'lxml')
 
         # Find the Excel link
-        excel_link = soup.find('a', href=lambda href: href and href.lower().find('sanktionerade-turneringar-2024') != -1 and href.lower().endswith(('.xls', '.xlsx')))
+        excel_link = soup.find('a', href=lambda href: href and href.lower().find('sanktionerade-turneringar-2025') != -1 and href.lower().endswith(('.xls', '.xlsx')))
 
         if not excel_link:
             print("No Excel file found.")
@@ -60,18 +63,18 @@ def scrape_website(url):
 
         # Create the download directory if it doesn't exist
         os.makedirs('./excel', exist_ok=True)  # Safe creation of directory
-
+        
         # Generate a unique filename with underscores
         filename = os.path.basename(excel_url).replace('/', '_')
         # Change extension if needed
         filename = f"{filename.rsplit('.', 1)[0]}.xlsx"
-
+        
         # Download the Excel content
         with open(f'./excel/{filename}', 'wb') as f:
             f.write(excel_response.content)
         # Load the Excel file using openpyxl
-        workbook = openpyxl.load_workbook(f'./excel/{filename}')"""
-        workbook = openpyxl.load_workbook(f'./excel/sanktionerade-turneringar-2024.xlsx')
+        workbook = openpyxl.load_workbook(f'./excel/{filename}')
+        #workbook = openpyxl.load_workbook(f'./excel/sanktionerade-turneringar-2025.xlsx')
         # Get the first worksheet (adjust index if needed)
         sheet = workbook.worksheets[0]
         # Add the "county" column to the header row
@@ -92,7 +95,7 @@ def scrape_website(url):
                         cell.value = "link"
                     if cell.value == "Arrangör":
                         cell.value = "club"  
-                    if cell.value == "Turneringar 2024":
+                    if cell.value == "Turneringar 2025":
                         cell.value = "name"  
                     if cell.value == "Åldersgrupp":
                         cell.value = "categoriesSummary"
@@ -110,21 +113,26 @@ def scrape_website(url):
             
             row_data = dict(zip([cell.value for cell in header_row], row))
             row_data["county"] = "Göteborg"
-            row_data["year"] = "2024"
+            row_data["year"] = "2025"
             row_data["categories"] = add_zero_before_one_digit(row_data["categoriesSummary"].split(','))
-            row_data["month"] = extract_month(row_data["date"])
+            
+            
+            
             if row_data["link"] and "http" not in row_data["link"]:
                 row_data["link"] = "https://" + row_data["link"]
-            if not row_data['link']
+            if not row_data['link']:
               row_data['link'] = ""
+            if isinstance(row_data["date"], datetime.datetime):
+              row_data["date"] = ""
+            row_data["month"] = extract_month(row_data["date"])
             row_data["date"] = strip_date(row_data["date"])
             data.append(row_data)
-              
+            
             # Save the data as JSON
-        with open("sanktionerade-turneringar-2024.xlsx.json", 'w', encoding='utf-8') as f:
+        with open("sanktionerade-turneringar-2025.xlsx.json", 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
-        print(f"Excel file downloaded and converted to JSON successfully: sanktionerade-turneringar-2024.xlsx")
+        print(f"Excel file downloaded and converted to JSON successfully: sanktionerade-turneringar-2025.xlsx")
 
     except requests.exceptions.RequestException as e:
         print(f"Error fetching or downloading files: {e}")

@@ -167,7 +167,7 @@ def convert_categories(categories):
   converted_years = add_zero_before_one_digit(converted_years)
     
   return converted_years         
-doc = fitz.open("./pdf/stockholm.pdf")
+doc = fitz.open("./pdf/stockholm2025.pdf")
 link_array = []
 for i in range(doc.page_count):
   page = doc.load_page(i)
@@ -176,7 +176,7 @@ for i in range(doc.page_count):
 
     link_array.append(link['uri'])
 # Read the PDF
-pages = tabula.read_pdf("./pdf/stockholm.pdf", pages="all" , output_format="json")
+pages = tabula.read_pdf("./pdf/stockholm2025.pdf", pages="all" , output_format="json")
 link_index = -1
 # Create a list of dictionaries to store data from all tables
 all_data = []
@@ -190,7 +190,7 @@ for page in pages:
                         "date": strip_date(cup[2]['text']),                      
                         "categoriesSummary": cup[3]['text'],
                         "link":   link_array[link_index] if cup[4]['text'] else "",
-                        "year": "2024",
+                        "year": "2025",
                         "county": "Stockholm",
                         "categories": convert_categories(cup[3]['text']),
                         "month": extract_month(cup[2]['text'])
@@ -199,6 +199,6 @@ for page in pages:
         link_index += 1     
 all_data.pop(0)
 # Save the entire list as a JSON file
-with open("stockholm.json", 'w', encoding='utf-8') as f:
+with open("stockholm2025.json", 'w', encoding='utf-8') as f:
     json.dump(all_data, f, indent=4, ensure_ascii=False)
 
